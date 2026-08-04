@@ -1215,158 +1215,1600 @@
         </div>
     </div>
     
-    <!-- PAGE 18: CRM: Email Integration & Campaigns -->
+    <!-- PAGE 18: Lead Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>18. CRM: Email Integration & Campaigns</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Email Integration & Campaigns will be provided here.]</p><div class="placeholder-box">CRM: Email Integration & Campaigns - Content Placeholder</div></div>
-        <div class="footer">Page 18</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>18. Lead Management Module</h2>
+            
+            <h3>18.1 Module Overview</h3>
+            <p>The Lead Management Module serves as the critical first stage of the customer acquisition process within the Real Estate ERP & CRM Management System. It is designed to act as a centralized repository that meticulously captures, validates, and tracks prospective buyers from the moment they express interest. Leads can be ingested dynamically from a multitude of integrated sources, including the corporate website, social media campaigns, property portals, and direct walk-ins. Once a lead enters the system, it automatically undergoes data validation to eliminate duplicates before being intelligently assigned to the appropriate sales executive based on predefined routing rules.</p>
+            <p>This module provides sales teams with a comprehensive 360-degree view of every prospect. It systematically stores essential customer information, demographic details, budget constraints, and historical interaction logs. By providing automated follow-up reminders and enabling real-time status tracking, the Lead Management Module ensures that no opportunity is missed. Ultimately, this structured approach standardizes the sales process, drastically reduces lead leakage, accelerates response times, and significantly improves overall conversion rates by enabling timely, highly personalized customer engagements.</p>
+
+            <h3>18.2 Objectives</h3>
+            <ul>
+                <li>Capture leads from multiple integrated marketing sources (Web, Social, Portals).</li>
+                <li>Eliminate duplicate leads through automated data validation algorithms.</li>
+                <li>Assign leads automatically to sales executives using dynamic routing rules.</li>
+                <li>Track lead progress meticulously through customized sales funnel stages.</li>
+                <li>Improve overall conversion rates through automated task and follow-up scheduling.</li>
+                <li>Maintain a complete, immutable history of all customer interactions and communications.</li>
+                <li>Generate comprehensive lead analytics and executive performance reports.</li>
+            </ul>
+
+            <h3>18.3 Lead Lifecycle Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Lead Created</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Lead Verification</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Lead Assignment</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Sales Follow-up</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Customer Qualification</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Site Visit Scheduled</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Quotation Shared</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Converted to Customer</div>
+            </div>
+
+            <h3>18.4 Lead Information</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Field</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Lead ID</strong></td><td>System-generated unique alphanumeric identifier for the lead.</td></tr>
+                    <tr><td><strong>Customer Name</strong></td><td>Full legal name of the prospective buyer.</td></tr>
+                    <tr><td><strong>Mobile Number</strong></td><td>Primary contact number (used for SMS and direct calls).</td></tr>
+                    <tr><td><strong>Email</strong></td><td>Primary email address for marketing and official communication.</td></tr>
+                    <tr><td><strong>Lead Source</strong></td><td>Origin of the lead (e.g., Website, Facebook, Walk-in, Referral).</td></tr>
+                    <tr><td><strong>Interested Project</strong></td><td>The specific property project the prospect is inquiring about.</td></tr>
+                    <tr><td><strong>Budget</strong></td><td>Estimated financial capacity or budget range of the prospect.</td></tr>
+                    <tr><td><strong>Preferred Location</strong></td><td>Desired geographic area or specific property block.</td></tr>
+                    <tr><td><strong>Assigned Executive</strong></td><td>The sales representative currently managing the lead.</td></tr>
+                    <tr><td><strong>Lead Status</strong></td><td>Current stage (e.g., New, Contacted, Site Visit, Negotiation).</td></tr>
+                    <tr><td><strong>Created Date</strong></td><td>System timestamp marking when the lead entered the CRM.</td></tr>
+                    <tr><td><strong>Last Follow-up</strong></td><td>Timestamp and brief note of the most recent interaction.</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 18</span>
+        </div>
     </div>
     
-    <!-- PAGE 19: CRM: Opportunity Management -->
+    <!-- PAGE 19: Lead Management Functional Specification -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>19. CRM: Opportunity Management</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Opportunity Management will be provided here.]</p><div class="placeholder-box">CRM: Opportunity Management - Content Placeholder</div></div>
-        <div class="footer">Page 19</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>19. Lead Management Functional Specification</h2>
+            
+            <h3>19.1 Functional Requirements</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr>
+                        <th width="15%">Req. ID</th>
+                        <th width="65%">Description</th>
+                        <th width="20%">Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>LM-01</strong></td><td><strong>Create Lead:</strong> The system must allow users to manually enter new leads.</td><td>High</td></tr>
+                    <tr><td><strong>LM-02</strong></td><td><strong>Edit Lead:</strong> Authorized users must be able to update lead information.</td><td>High</td></tr>
+                    <tr><td><strong>LM-03</strong></td><td><strong>Delete Lead:</strong> Only Administrators can permanently delete a lead record.</td><td>Low</td></tr>
+                    <tr><td><strong>LM-04</strong></td><td><strong>Search Lead:</strong> Users must be able to search leads by Name, Mobile, or ID.</td><td>High</td></tr>
+                    <tr><td><strong>LM-05</strong></td><td><strong>Lead Assignment:</strong> The system must auto-assign or allow manual assignment of leads.</td><td>High</td></tr>
+                    <tr><td><strong>LM-06</strong></td><td><strong>Follow-up Scheduling:</strong> Users must be able to log tasks and schedule reminders.</td><td>High</td></tr>
+                    <tr><td><strong>LM-07</strong></td><td><strong>Lead Status Update:</strong> Users must be able to move leads through the sales pipeline.</td><td>High</td></tr>
+                    <tr><td><strong>LM-08</strong></td><td><strong>Lead Conversion:</strong> The system must transition won leads into Customer records.</td><td>High</td></tr>
+                    <tr><td><strong>LM-09</strong></td><td><strong>Import Leads:</strong> The system must support bulk lead import via CSV/Excel templates.</td><td>Medium</td></tr>
+                    <tr><td><strong>LM-10</strong></td><td><strong>Export Lead Report:</strong> Authorized users must be able to export lead data to Excel/PDF.</td><td>Medium</td></tr>
+                </tbody>
+            </table>
+
+            <h3>19.2 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Unique Identifier</strong></td><td>Every Lead ID must be absolutely unique across the entire database.</td></tr>
+                    <tr><td><strong>Mandatory Fields</strong></td><td>Customer Name and Mobile Number are strictly required to save a lead.</td></tr>
+                    <tr><td><strong>Duplicate Detection</strong></td><td>The system must flag duplicate leads based on matching Mobile Numbers or Emails.</td></tr>
+                    <tr><td><strong>Assignment Rule</strong></td><td>Every active lead must be assigned to exactly one active sales executive.</td></tr>
+                    <tr><td><strong>Automated Reminders</strong></td><td>Follow-up reminders must automatically trigger dashboard alerts on the scheduled date.</td></tr>
+                    <tr><td><strong>Data Continuity</strong></td><td>Converted leads must inherently become Customer records without data re-entry.</td></tr>
+                    <tr><td><strong>Record Locking</strong></td><td>Closed (Won/Lost) leads cannot be modified without explicit Manager authorization.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>19.3 Process Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 65%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: #6c757d; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Start</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Enter Lead Details</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Validate Data</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Save Lead</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Assign Executive</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Schedule Follow-up</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Update Status</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Convert or Close Lead</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #6c757d; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">End</div>
+            </div>
+
+            <p style="margin-top: 10px;">By enforcing these rigorous functional requirements and business rules, the Lead Management Module systematically eliminates operational inefficiencies. It guarantees that every prospect is actively nurtured, thereby dramatically improving sales productivity, elevating customer engagement, and maximizing conversion efficiency.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 19</span>
+        </div>
     </div>
     
-    <!-- PAGE 20: CRM: Quotations & Proposals -->
+    <!-- PAGE 20: Inquiry Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>20. CRM: Quotations & Proposals</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Quotations & Proposals will be provided here.]</p><div class="placeholder-box">CRM: Quotations & Proposals - Content Placeholder</div></div>
-        <div class="footer">Page 20</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>20. Inquiry Management Module</h2>
+            
+            <h3>20.1 Module Overview</h3>
+            <p>The Inquiry Management Module serves as the primary gateway for capturing and centralizing all preliminary customer interactions before they officially enter the sales funnel. In today's omni-channel marketing environment, potential buyers initiate contact through a vast array of mediums—including corporate website forms, direct phone calls, emails, social media inquiries, physical walk-in visits, and targeted marketing campaigns. This module is engineered to seamlessly aggregate these disparate inquiries into a single, unified database.</p>
+            <p>Upon capturing an inquiry, the system immediately records essential contact details and the specific nature of the customer's interest. The module then intelligently assigns the inquiry to an appropriate sales representative based on geographic location, project interest, or current workload. It automatically schedules initial follow-up tasks and actively tracks the status of the inquiry through every subsequent interaction. The primary objective of this module is to ensure zero response latency; every customer inquiry is acknowledged, tracked, and nurtured meticulously until it is successfully qualified and converted into a formal Lead, or logically closed if deemed unviable.</p>
+
+            <h3>20.2 Inquiry Sources</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Inquiry Source</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Website</strong></td><td>Direct submissions via contact forms on the corporate landing pages.</td></tr>
+                    <tr><td><strong>Walk-in Customer</strong></td><td>Physical visits to the corporate office or project site sales office.</td></tr>
+                    <tr><td><strong>Phone Call</strong></td><td>Inbound telephonic queries handled by the central reception or sales team.</td></tr>
+                    <tr><td><strong>Email</strong></td><td>Direct email correspondence sent to official corporate sales addresses.</td></tr>
+                    <tr><td><strong>Social Media</strong></td><td>Messages and comments from platforms like Facebook, Instagram, or LinkedIn.</td></tr>
+                    <tr><td><strong>Property Portal</strong></td><td>Aggregated leads forwarded from third-party real estate listing websites.</td></tr>
+                    <tr><td><strong>Marketing Campaign</strong></td><td>Responses generated from specific SMS, email, or digital advertisement drives.</td></tr>
+                    <tr><td><strong>Channel Partner</strong></td><td>Inquiries submitted on behalf of a client by registered real estate brokers.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>20.3 Inquiry Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Customer Inquiry</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Capture Inquiry Details</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Validate Information</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Assign Sales Executive</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Schedule Follow-up</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Convert to Lead or Close</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #6c757d; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">End</div>
+            </div>
+
+            <h3>20.4 Functional Features</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Feature</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Create Inquiry</strong></td><td>Manual entry form to instantly log walk-in or telephonic inquiries.</td></tr>
+                    <tr><td><strong>Edit Inquiry</strong></td><td>Ability to update contact details or modify project interest information.</td></tr>
+                    <tr><td><strong>Search Inquiry</strong></td><td>Advanced filtering by date, source, status, or assigned executive.</td></tr>
+                    <tr><td><strong>Assign Executive</strong></td><td>Automated round-robin or manual assignment to specific sales personnel.</td></tr>
+                    <tr><td><strong>Follow-up Reminder</strong></td><td>System-generated alerts ensuring timely response to the prospective buyer.</td></tr>
+                    <tr><td><strong>Status Tracking</strong></td><td>Visual indicators showing if the inquiry is Open, In Progress, or Converted.</td></tr>
+                    <tr><td><strong>Inquiry History</strong></td><td>Comprehensive chronological log of all communication attempts and notes.</td></tr>
+                    <tr><td><strong>Inquiry Reports</strong></td><td>Analytical dashboards detailing inquiry volume by source and conversion rate.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 20</span>
+        </div>
     </div>
     
-    <!-- PAGE 21: CRM: Marketing Automation -->
+    <!-- PAGE 21: Customer Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>21. CRM: Marketing Automation</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Marketing Automation will be provided here.]</p><div class="placeholder-box">CRM: Marketing Automation - Content Placeholder</div></div>
-        <div class="footer">Page 21</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>21. Customer Management Module</h2>
+            
+            <h3>21.1 Module Overview</h3>
+            <p>The Customer Management Module is the definitive core of the system's post-conversion operations. It is designed to maintain comprehensive, immutable customer profiles throughout the entire lifecycle of the business relationship. The transition from a "Lead" to a "Customer" occurs the moment a prospect finalizes a property booking; at this juncture, the system seamlessly ports all historical pre-sales data into a permanent, highly secure Customer Record.</p>
+            <p>This module acts as the central repository for all critical client data. It securely stores personal contact information, rigorous KYC (Know Your Customer) identity proofs, comprehensive communication histories, exact property booking details, and complete financial payment records. Furthermore, it manages the generation and archival of legal property ownership information, binding agreements, and subsequent post-sales service requests. By aggregating this massive volume of disparate data into a single, unified view, the Customer Management Module empowers the enterprise to deliver exceptional, personalized service. It ensures that any authorized employee—whether in Sales, Finance, or Support—can instantly access accurate, up-to-date customer information, thereby facilitating highly efficient relationship management and fostering enduring, long-term client engagement.</p>
+
+            <h3>21.2 Customer Information</h3>
+            <table style="font-size: 8pt;">
+                <thead>
+                    <tr><th width="30%">Field</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Customer ID</strong></td><td>Permanent, system-generated unique identifier for the customer.</td></tr>
+                    <tr><td><strong>Customer Name</strong></td><td>Full legal name as per government-issued identification.</td></tr>
+                    <tr><td><strong>Contact Number</strong></td><td>Primary mobile number for SMS alerts and direct communication.</td></tr>
+                    <tr><td><strong>Email Address</strong></td><td>Primary email for official invoices, receipts, and legal notices.</td></tr>
+                    <tr><td><strong>Address</strong></td><td>Permanent residential or corporate mailing address.</td></tr>
+                    <tr><td><strong>Identity Proof</strong></td><td>Uploaded KYC documents (e.g., Passport, National ID, PAN Card).</td></tr>
+                    <tr><td><strong>Occupation</strong></td><td>Professional background or corporate affiliation of the client.</td></tr>
+                    <tr><td><strong>Preferred Property</strong></td><td>The specific project and unit number purchased by the customer.</td></tr>
+                    <tr><td><strong>Booking Status</strong></td><td>Current state of the reservation (e.g., Token Paid, Confirmed, Cancelled).</td></tr>
+                    <tr><td><strong>Payment Status</strong></td><td>Financial overview (e.g., Up-to-date, Overdue, Fully Paid).</td></tr>
+                    <tr><td><strong>Assigned Executive</strong></td><td>The dedicated relationship manager or post-sales support representative.</td></tr>
+                    <tr><td><strong>Customer Status</strong></td><td>Overall engagement status (e.g., Active, Handed Over, Defaulter).</td></tr>
+                </tbody>
+            </table>
+
+            <h3>21.3 Customer Lifecycle Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 10px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 3px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Lead Converted</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Customer Registration</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Property Booking</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Payment Processing</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Agreement Execution</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Property Registration</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Possession</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 3px 15px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 180px; text-align: center;">Post-Sales Support</div>
+            </div>
+
+            <h3>21.4 Business Rules</h3>
+            <table style="font-size: 8pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Unique Customer ID</strong></td><td>The Customer ID must be globally unique and immutable across the ERP.</td></tr>
+                    <tr><td><strong>Mandatory KYC</strong></td><td>Government-issued identity documents are strictly required prior to finalizing a booking.</td></tr>
+                    <tr><td><strong>No Duplication</strong></td><td>Customer records cannot be duplicated; repeat purchases link to the existing profile.</td></tr>
+                    <tr><td><strong>Booking Linkage</strong></td><td>Every property booking record must be permanently linked to a valid customer profile.</td></tr>
+                    <tr><td><strong>Payment Traceability</strong></td><td>A complete, auditable history of all financial transactions must be maintained indefinitely.</td></tr>
+                    <tr><td><strong>Restricted Modification</strong></td><td>Only authorized Administration or Finance users can modify sensitive customer data.</td></tr>
+                    <tr><td><strong>Permanent Archival</strong></td><td>Customer records remain accessible in the system even long after project completion.</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 5px;">Ultimately, the Customer Management Module significantly strengthens client relationships by ensuring that accurate, real-time information is instantly available across all enterprise departments, thereby vastly improving service quality and operational transparency.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 21</span>
+        </div>
     </div>
     
-    <!-- PAGE 22: CRM: Task Management -->
+    <!-- PAGE 22: Site Visit Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>22. CRM: Task Management</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Task Management will be provided here.]</p><div class="placeholder-box">CRM: Task Management - Content Placeholder</div></div>
-        <div class="footer">Page 22</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>22. Site Visit Management Module</h2>
+            
+            <h3>22.1 Module Overview</h3>
+            <p>The Site Visit Management Module is a pivotal component of the CRM, designed to streamline how sales executives schedule, manage, and record customer visits to project sites. A site visit is often the most critical conversion milestone in real estate sales. This module enables sales teams to efficiently book site tours, automatically cross-referencing executive availability and project timings. It dispatches automated SMS and email reminders to both the customer and the assigned executive to drastically reduce no-show rates.</p>
+            <p>During and after the visit, the module acts as a strict operational ledger. Executives must log attendance, record the specific units shown, and capture detailed customer feedback directly into the CRM via their mobile or desktop interface. This immediate data capture ensures that the customer's sentiment, objections, and preferences are permanently documented. Following the visit, the module mandates the scheduling of the next logical follow-up action, ensuring the prospect continues moving smoothly through the sales pipeline without momentum loss.</p>
+
+            <h3>22.2 Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Lead Qualified</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Schedule Visit</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Notify Customer</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Assign Executive</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Visit Conducted</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Capture Feedback</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Update CRM</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #6c757d; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Next Follow-up</div>
+            </div>
+
+            <h3>22.3 Functional Features</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Feature</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Schedule Visit</strong></td><td>Calendar tool to book exact dates and times for project site tours.</td></tr>
+                    <tr><td><strong>Reschedule Visit</strong></td><td>Automated workflow to alter timings and notify all involved parties.</td></tr>
+                    <tr><td><strong>Cancel Visit</strong></td><td>System to record cancellations along with mandatory cancellation reasons.</td></tr>
+                    <tr><td><strong>Visit Calendar</strong></td><td>Centralized visual dashboard displaying all upcoming visits for the day/week.</td></tr>
+                    <tr><td><strong>Executive Assignment</strong></td><td>Algorithm to assign the most appropriate or available sales representative.</td></tr>
+                    <tr><td><strong>GPS Location (Optional)</strong></td><td>Geofencing to verify the executive's physical presence at the project site.</td></tr>
+                    <tr><td><strong>Visit Feedback</strong></td><td>Structured digital forms for recording the prospect's exact sentiments.</td></tr>
+                    <tr><td><strong>Visit History</strong></td><td>Complete, time-stamped ledger of all past site tours for a specific lead.</td></tr>
+                    <tr><td><strong>Visit Reports</strong></td><td>Management analytics tracking scheduled vs. conducted visit ratios.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>22.4 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Mandatory Feedback</strong></td><td>A visit cannot be marked 'Completed' without submitting customer feedback.</td></tr>
+                    <tr><td><strong>No Double Booking</strong></td><td>The system strictly prevents booking the same executive for overlapping visits.</td></tr>
+                    <tr><td><strong>Automated Escalation</strong></td><td>Unattended or severely delayed scheduled visits are escalated to Sales Managers.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 22</span>
+        </div>
     </div>
     
-    <!-- PAGE 23: CRM: Ticket Management & Support -->
+    <!-- PAGE 23: Sales Pipeline & Opportunity Management -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>23. CRM: Ticket Management & Support</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Ticket Management & Support will be provided here.]</p><div class="placeholder-box">CRM: Ticket Management & Support - Content Placeholder</div></div>
-        <div class="footer">Page 23</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>23. Sales Pipeline & Opportunity Management</h2>
+            
+            <p>The Sales Pipeline & Opportunity Management module provides an aggregate, highly visual representation of the entire sales operation. It transforms raw lead data into a structured, measurable funnel, allowing executives and management to track the exact progression of every potential deal. By categorizing leads into logical, sequential stages, this module enforces a standardized sales methodology across the enterprise. It enables accurate revenue forecasting, identifies bottlenecks where prospects commonly stall, and highlights high-value opportunities that require immediate executive intervention. A meticulously managed pipeline ensures that the sales force remains focused on closing viable opportunities rather than merely managing disjointed data.</p>
+
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; width: 220px; text-align: center; clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); font-weight: bold; font-size: 9pt;">New Lead</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: #3b7bb5; color: #fff; padding: 4px 15px; width: 200px; text-align: center; clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); font-weight: bold; font-size: 9pt;">Qualified Lead</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: #4a8ac4; color: #fff; padding: 4px 15px; width: 180px; text-align: center; clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); font-weight: bold; font-size: 9pt;">Site Visit</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: #5999d3; color: #fff; padding: 4px 15px; width: 160px; text-align: center; clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); font-weight: bold; font-size: 9pt;">Negotiation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: #68a8e2; color: #fff; padding: 4px 15px; width: 140px; text-align: center; clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); font-weight: bold; font-size: 9pt;">Quotation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: #77b7f1; color: #fff; padding: 4px 15px; width: 120px; text-align: center; clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%); font-weight: bold; font-size: 9pt;">Booking</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 9pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; width: 100px; text-align: center; font-weight: bold; font-size: 9pt; border-radius: 4px;">Won / Lost</div>
+            </div>
+
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="20%">Stage</th><th width="50%">Description</th><th width="30%">Responsible Dept.</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>New Lead</strong></td><td>Raw inquiry captured into the CRM system.</td><td>Marketing / Pre-Sales</td></tr>
+                    <tr><td><strong>Qualified</strong></td><td>Lead vetted for budget and genuine property interest.</td><td>Pre-Sales / Sales</td></tr>
+                    <tr><td><strong>Site Visit</strong></td><td>Customer physically visits the project location.</td><td>Sales Executive</td></tr>
+                    <tr><td><strong>Negotiation</strong></td><td>Active discussions regarding pricing, terms, and units.</td><td>Sales Executive / Manager</td></tr>
+                    <tr><td><strong>Quotation</strong></td><td>Formal pricing and inventory proposal shared.</td><td>Sales Executive</td></tr>
+                    <tr><td><strong>Booking</strong></td><td>Customer pays token amount to block inventory.</td><td>Sales / Finance</td></tr>
+                    <tr><td><strong>Won / Lost</strong></td><td>Final disposition of the sales opportunity.</td><td>System Automated</td></tr>
+                </tbody>
+            </table>
+
+            <table style="font-size: 8.5pt; margin-top: 15px;">
+                <thead>
+                    <tr><th width="35%">Key Performance Indicator</th><th width="65%">Business Rule & Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Lead Conversion Rate</strong></td><td>Percentage of New Leads that successfully reach the 'Won' stage.</td></tr>
+                    <tr><td><strong>Average Sales Cycle</strong></td><td>System tracks the median time (in days) taken from 'New Lead' to 'Booking'.</td></tr>
+                    <tr><td><strong>Lost Opportunities</strong></td><td>Mandatory selection of a 'Loss Reason' drop-down when marking a lead as Lost.</td></tr>
+                    <tr><td><strong>Win Ratio</strong></td><td>Comparative metric of Won vs. Lost opportunities per sales executive.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 23</span>
+        </div>
     </div>
     
-    <!-- PAGE 24: CRM: Analytics & Performance -->
+    <!-- PAGE 24: Quotation Management -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>24. CRM: Analytics & Performance</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Analytics & Performance will be provided here.]</p><div class="placeholder-box">CRM: Analytics & Performance - Content Placeholder</div></div>
-        <div class="footer">Page 24</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>24. Quotation Management</h2>
+            
+            <p>The Quotation Management Module automates the highly sensitive process of generating, approving, and dispatching financial proposals to prospects. Once a customer selects a specific property unit, the system dynamically calculates the base price, applies necessary statutory taxes, incorporates standard or custom payment plans, and factors in any negotiated discounts. If a discount exceeds the executive's authorized threshold, the module automatically routes the quotation to a senior manager for digital approval before it can be finalized and emailed to the client. This ensures absolute financial compliance, prevents rogue pricing, and standardizes all outgoing corporate documentation.</p>
+
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Customer Selected Property</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Pricing Calculation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Discount Approval (If Applicable)</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Quotation Generation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Email to Customer</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Customer Approval</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Proceed to Booking</div>
+            </div>
+
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Quotation Element</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Quotation Number</strong></td><td>System-generated, sequential unique document identifier.</td></tr>
+                    <tr><td><strong>Customer</strong></td><td>Linked CRM Lead or Customer profile details.</td></tr>
+                    <tr><td><strong>Property</strong></td><td>Specific Project, Tower, and Unit Number selected.</td></tr>
+                    <tr><td><strong>Price</strong></td><td>Calculated base rate multiplied by total square footage.</td></tr>
+                    <tr><td><strong>Taxes</strong></td><td>Applicable statutory government taxes (e.g., GST/VAT).</td></tr>
+                    <tr><td><strong>Discount</strong></td><td>Approved monetary deduction from the gross price.</td></tr>
+                    <tr><td><strong>Validity</strong></td><td>Expiration date (typically 7-14 days) to induce urgency.</td></tr>
+                    <tr><td><strong>Status</strong></td><td>Current state (Draft, Pending Approval, Sent, Accepted, Expired).</td></tr>
+                </tbody>
+            </table>
+
+            <table style="font-size: 8.5pt; margin-top: 15px;">
+                <thead>
+                    <tr><th width="35%">Functional Requirement</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Generate Quotation</strong></td><td>Ability to create a dynamic pricing breakdown in a single click.</td></tr>
+                    <tr><td><strong>Modify Quotation</strong></td><td>Allows editing of payment plans prior to final submission.</td></tr>
+                    <tr><td><strong>Print PDF</strong></td><td>Export quotation into a high-quality, branded corporate PDF document.</td></tr>
+                    <tr><td><strong>Email Quotation</strong></td><td>Directly dispatch the PDF to the customer from within the CRM interface.</td></tr>
+                    <tr><td><strong>Quotation History</strong></td><td>Audit trail of all quotations issued to a specific customer.</td></tr>
+                    <tr><td><strong>Version Control</strong></td><td>Maintains V1, V2, etc., preventing overwriting of previous pricing offers.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 24</span>
+        </div>
     </div>
     
-    <!-- PAGE 25: CRM: Mobile App Interfaces -->
+    <!-- PAGE 25: Follow-up & Task Management -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>25. CRM: Mobile App Interfaces</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Mobile App Interfaces will be provided here.]</p><div class="placeholder-box">CRM: Mobile App Interfaces - Content Placeholder</div></div>
-        <div class="footer">Page 25</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>25. Follow-up & Task Management</h2>
+            
+            <p>The Follow-up & Task Management Module is the operational engine that drives daily sales productivity. It systematically organizes, tracks, and reminds sales executives of their pending interactions with prospective buyers. By enforcing a disciplined routine of phone calls, emails, and meetings, this module ensures that leads are continuously nurtured. It completely eliminates the reliance on manual diaries or disparate spreadsheets, centralizing all actionable tasks into a unified dashboard that guarantees accountability and dramatically minimizes missed opportunities.</p>
+
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 50%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 160px; text-align: center;">Create Follow-up</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 160px; text-align: center;">Assign Executive</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 160px; text-align: center;">Reminder Notification</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 160px; text-align: center;">Customer Contact</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 160px; text-align: center;">Update Status</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 160px; text-align: center;">Next Follow-up</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #6c757d; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 160px; text-align: center;">Lead Closed</div>
+            </div>
+
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Data Field</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Task</strong></td><td>Specific action required (e.g., Call, Email, Meeting, Site Visit).</td></tr>
+                    <tr><td><strong>Owner</strong></td><td>The designated sales executive responsible for completing the task.</td></tr>
+                    <tr><td><strong>Priority</strong></td><td>Urgency level (High, Medium, Low) to dictate workflow order.</td></tr>
+                    <tr><td><strong>Due Date</strong></td><td>Exact scheduled date and time for task execution.</td></tr>
+                    <tr><td><strong>Status</strong></td><td>Current condition (Pending, Completed, Rescheduled, Cancelled).</td></tr>
+                    <tr><td><strong>Remarks</strong></td><td>Mandatory notes logged by the executive post-interaction.</td></tr>
+                </tbody>
+            </table>
+
+            <table style="font-size: 8.5pt; margin-top: 15px;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Automatic Reminders</strong></td><td>System pushes alerts 30 minutes before task due time via SMS/App.</td></tr>
+                    <tr><td><strong>Escalation</strong></td><td>Tasks unresolved for 48 hours auto-escalate to the reporting manager.</td></tr>
+                    <tr><td><strong>Missed Follow-up Alert</strong></td><td>Visual red flag on the dashboard for any overdue tasks.</td></tr>
+                    <tr><td><strong>Task History</strong></td><td>Immutable log of all interactions is permanently attached to the Lead.</td></tr>
+                    <tr><td><strong>Dashboard Notifications</strong></td><td>Daily summary of pending tasks greets users upon login.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 25</span>
+        </div>
     </div>
     
-    <!-- PAGE 26: ERP: Dashboard & Overview -->
+    <!-- PAGE 26: Property Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>26. ERP: Dashboard & Overview</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Dashboard & Overview will be provided here.]</p><div class="placeholder-box">ERP: Dashboard & Overview - Content Placeholder</div></div>
-        <div class="footer">Page 26</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>26. Property Management Module</h2>
+            
+            <p>The Property Management Module functions as the authoritative inventory ledger within the ERP ecosystem. It meticulously catalogs every physical asset available for sale, establishing a rigid, hierarchical data structure that mimics the physical architecture of the real estate developments. By maintaining a highly accurate, real-time repository of property units, pricing, and availability status, this module absolutely prevents the severe operational risk of double-booking a single property. It empowers the sales team with instantaneous inventory visibility, allowing them to filter, search, and present available units to customers with utmost confidence and precision.</p>
+
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Real Estate Project</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Tower / Block</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Floor</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Property Unit (Apartment/Villa)</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Inventory Status</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Pricing Data</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Live Availability</div>
+            </div>
+
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Data Element</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Property ID</strong></td><td>System-generated unique barcode/identifier for the unit.</td></tr>
+                    <tr><td><strong>Project / Tower / Floor</strong></td><td>Hierarchical location mapping of the specific unit.</td></tr>
+                    <tr><td><strong>Unit Number</strong></td><td>The physical door number (e.g., A-402).</td></tr>
+                    <tr><td><strong>Area & Configuration</strong></td><td>Square footage (Carpet/Built-up) and layout (2BHK, 3BHK).</td></tr>
+                    <tr><td><strong>Facing</strong></td><td>Directional alignment (North, East, Park-Facing).</td></tr>
+                    <tr><td><strong>Status</strong></td><td>Current state (Available, Blocked, Booked, Sold).</td></tr>
+                    <tr><td><strong>Price</strong></td><td>Calculated base selling price exclusive of taxes.</td></tr>
+                </tbody>
+            </table>
+
+            <table style="font-size: 8.5pt; margin-top: 10px;">
+                <thead>
+                    <tr><th width="35%">Functional Requirement</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Add/Edit Property</strong></td><td>Authorized admin interfaces to manage inventory hierarchies.</td></tr>
+                    <tr><td><strong>Inventory Status</strong></td><td>Real-time locking mechanism immediately upon receiving a token payment.</td></tr>
+                    <tr><td><strong>Search Property</strong></td><td>Granular search filters by budget, BHK, facing, and floor level.</td></tr>
+                    <tr><td><strong>Images & Amenities</strong></td><td>Digital repository of floor plans and associated facility details.</td></tr>
+                    <tr><td><strong>Price Revision</strong></td><td>Controlled, bulk-update capability for applying revised base rates.</td></tr>
+                    <tr><td><strong>Availability Report</strong></td><td>Dynamic export mapping total sold vs. unsold inventory metrics.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 26</span>
+        </div>
     </div>
     
-    <!-- PAGE 27: ERP: Financial Management -->
+    <!-- PAGE 27: Project Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>27. ERP: Financial Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Financial Management will be provided here.]</p><div class="placeholder-box">ERP: Financial Management - Content Placeholder</div></div>
-        <div class="footer">Page 27</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>27. Project Management Module</h2>
+            
+            <p>The Project Management Module operates as the strategic apex of the ERP system, providing senior management with high-level oversight of entire real estate developments from inception to handover. It allows administrators to define the structural blueprint of a new development, configuring towers, floors, and individual units before officially launching the inventory to the CRM sales pipeline. Beyond initial setup, this module acts as an ongoing command center, tracking construction progress, managing critical project documentation (legal clearances, structural plans), and monitoring macro-level sales velocity against projected timelines.</p>
+
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Create Project</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Add Towers</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Configure Floors</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Add Units</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Assign Inventory</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #3b7bb5; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Launch Project</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #3b7bb5; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Sales Monitoring</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Project Completion</div>
+            </div>
+
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Project Parameter</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Project Name & Location</strong></td><td>Official branding and geographic coordinates of the development.</td></tr>
+                    <tr><td><strong>Builder / Developer</strong></td><td>Corporate entity executing the construction.</td></tr>
+                    <tr><td><strong>Project Type</strong></td><td>Classification (e.g., Residential, Commercial, Mixed-Use).</td></tr>
+                    <tr><td><strong>Launch & Completion Date</strong></td><td>Target timelines for sales initiation and final possession handover.</td></tr>
+                    <tr><td><strong>Total Units</strong></td><td>Aggregate count of all saleable properties within the project boundaries.</td></tr>
+                    <tr><td><strong>Status</strong></td><td>Current lifecycle phase (e.g., Pre-Launch, Under Construction, Delivered).</td></tr>
+                </tbody>
+            </table>
+
+            <table style="font-size: 8pt; margin-top: 10px;">
+                <thead>
+                    <tr><th width="35%">Feature</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Project Creation/Editing</strong></td><td>Interface to define and modify core master data and legal parameters.</td></tr>
+                    <tr><td><strong>Tower/Floor Management</strong></td><td>Tools to dynamically build the structural hierarchy of the development.</td></tr>
+                    <tr><td><strong>Project Documents</strong></td><td>Central repository for statutory approvals, brochures, and master plans.</td></tr>
+                    <tr><td><strong>Construction Status</strong></td><td>Module to update and broadcast milestone completion percentages.</td></tr>
+                    <tr><td><strong>Project Reports & Dashboard</strong></td><td>Executive-level visualizations aggregating sales vs. total inventory.</td></tr>
+                </tbody>
+            </table>
+            
+            <p style="margin-top: 5px; font-size: 8.5pt;">By acting as the centralized genesis point for all property data, the Project Management Module inherently integrates with CRM (marketing), Inventory (allocation), Booking (sales processing), Finance (revenue tracking), and Reporting. This guarantees a singular, unified source of truth across the entire enterprise lifecycle.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 27</span>
+        </div>
     </div>
     
-    <!-- PAGE 28: ERP: Accounts Payable & Receivable -->
+    <!-- PAGE 28: Inventory Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>28. ERP: Accounts Payable & Receivable</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Accounts Payable & Receivable will be provided here.]</p><div class="placeholder-box">ERP: Accounts Payable & Receivable - Content Placeholder</div></div>
-        <div class="footer">Page 28</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>28. Inventory Management Module</h2>
+            
+            <h3>28.1 Module Overview</h3>
+            <p>The Inventory Management Module is the fundamental cataloging engine of the Real Estate ERP system. It manages the complete lifecycle and real-time status of all physical real estate units across the organization's portfolio. By establishing a rigid, hierarchical structure mapping Projects, Towers, Floors, and individual Units, the module ensures complete accuracy in property tracking. It handles complex availability tracking, instantly updating the reservation status of a unit the moment a customer pays a token amount, thereby preventing double bookings. The module provides granular visibility into available, reserved, booked, and sold units, empowering the sales force with reliable, up-to-the-minute data to confidently close deals.</p>
+
+            <h3>28.2 Inventory Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Project Created</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Tower Added</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Floor Added</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Unit Created</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Inventory Available</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #f39c12; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Reserved</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #e67e22; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Booked</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #e74c3c; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Sold</div>
+            </div>
+
+            <h3>28.3 Inventory Details</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Field</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Inventory ID</strong></td><td>System-generated unique identifier for the specific unit.</td></tr>
+                    <tr><td><strong>Project</strong></td><td>The master real estate development name.</td></tr>
+                    <tr><td><strong>Tower / Floor</strong></td><td>Hierarchical location of the unit within the project.</td></tr>
+                    <tr><td><strong>Unit Number</strong></td><td>The physical door/apartment number.</td></tr>
+                    <tr><td><strong>Property Type</strong></td><td>Classification (e.g., 2BHK, 3BHK, Villa, Commercial Shop).</td></tr>
+                    <tr><td><strong>Area</strong></td><td>Measurement metrics (Carpet Area, Built-up Area, Super Built-up Area).</td></tr>
+                    <tr><td><strong>Price</strong></td><td>Calculated base rate of the unit.</td></tr>
+                    <tr><td><strong>Status</strong></td><td>Current availability state (Available, Reserved, Booked, Sold).</td></tr>
+                    <tr><td><strong>Availability Date</strong></td><td>Expected date the unit will be ready for possession.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>28.4 Functional Requirements</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="15%">Req ID</th><th width="65%">Description</th><th width="20%">Priority</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>INV-01</strong></td><td>Create Inventory: Interface to sequentially generate units based on floors/towers.</td><td>High</td></tr>
+                    <tr><td><strong>INV-02</strong></td><td>Update Inventory: Ability to bulk-update pricing or status based on management decisions.</td><td>High</td></tr>
+                    <tr><td><strong>INV-03</strong></td><td>Search Inventory: Granular search functionality with multi-parameter filtering for sales teams.</td><td>High</td></tr>
+                    <tr><td><strong>INV-04</strong></td><td>Reserve Unit: Temporarily lock a unit for 48 hours pending initial payment clearance.</td><td>High</td></tr>
+                    <tr><td><strong>INV-05</strong></td><td>Release Unit: Automatically unlock reserved units if payment is not realized within the timeframe.</td><td>Medium</td></tr>
+                    <tr><td><strong>INV-06</strong></td><td>Inventory Reports: Generate MIS reports detailing unsold vs. sold ratios across projects.</td><td>High</td></tr>
+                    <tr><td><strong>INV-07</strong></td><td>Inventory Dashboard: Visual grid representing tower-wise unit status via color coding.</td><td>Medium</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 28</span>
+        </div>
     </div>
     
-    <!-- PAGE 29: ERP: General Ledger & Taxation -->
+    <!-- PAGE 29: Booking Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>29. ERP: General Ledger & Taxation</h2><p class="placeholder-text">[Detailed content and specifications for ERP: General Ledger & Taxation will be provided here.]</p><div class="placeholder-box">ERP: General Ledger & Taxation - Content Placeholder</div></div>
-        <div class="footer">Page 29</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>29. Booking Management Module</h2>
+            
+            <h3>29.1 Module Overview</h3>
+            <p>The Booking Management Module is the critical transactional bridge between the CRM (Pre-sales) and the ERP (Post-sales). It formalizes the customer's intent to purchase by processing the official booking application. Once a prospect selects a property, this module validates live inventory availability, collects exhaustive applicant details via a digital Booking Form, and records the initial token payment. The module enforces strict business rules, ensuring that a unit is immediately locked out of the available inventory pool upon payment confirmation, subsequently routing the booking file to senior management for final authorization. This rigorous process guarantees data integrity and prevents costly duplicate allotments.</p>
+
+            <h3>29.2 Booking Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Customer Selection</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Property Selection</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Availability Check</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Booking Form</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Payment Confirmation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Booking Approval</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Booking Complete</div>
+            </div>
+
+            <h3>29.3 Booking Details</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Field</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Booking ID</strong></td><td>System-generated, highly secure sequential reference number.</td></tr>
+                    <tr><td><strong>Customer</strong></td><td>Direct linkage to the comprehensive CRM Customer Profile.</td></tr>
+                    <tr><td><strong>Property</strong></td><td>Specific Inventory ID linking the booking to a physical unit.</td></tr>
+                    <tr><td><strong>Booking Date</strong></td><td>Time-stamped record of when the application was formally submitted.</td></tr>
+                    <tr><td><strong>Booking Amount</strong></td><td>Initial token/advance monetary value received to block the unit.</td></tr>
+                    <tr><td><strong>Status</strong></td><td>Current state (Pending Verification, Approved, Cancelled).</td></tr>
+                    <tr><td><strong>Sales Executive</strong></td><td>The representative credited with successfully closing the transaction.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>29.4 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Unique Booking Number</strong></td><td>Every booking is assigned an immutable, non-repeating identifier.</td></tr>
+                    <tr><td><strong>Property Lock after Booking</strong></td><td>The selected inventory is instantly frozen and marked 'Booked' globally.</td></tr>
+                    <tr><td><strong>Cancellation Policy</strong></td><td>Automated deduction of cancellation charges from the refund amount.</td></tr>
+                    <tr><td><strong>Booking Approval</strong></td><td>Mandatory digital sign-off required by the Sales Head or Finance Manager.</td></tr>
+                    <tr><td><strong>Duplicate Booking Prevention</strong></td><td>Database constraint preventing two Bookings against a single Inventory ID.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 29</span>
+        </div>
+    </div>
+
+    <!-- PAGE 30: Payment Management Module -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>30. Payment Management Module</h2>
+            
+            <h3>30.1 Module Overview</h3>
+            <p>The Payment Management Module dictates the financial lifecycle of a real estate transaction. It automates the generation of complex, milestone-based payment schedules tailored to each customer's specific agreement. As the project construction progresses or calendar dates trigger, the system automatically generates demands, receives incoming payments across various channels, and verifies the funds against the general ledger. It drastically reduces manual accounting errors, automatically calculates outstanding balances, computes delayed payment interest, and generates legally compliant digital receipts.</p>
+
+            <h3>30.2 Payment Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Booking Confirmed</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Generate Payment Schedule</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Receive Payment</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Payment Verification</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Receipt Generation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Outstanding Balance</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Payment Complete</div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; gap: 10px;">
+                <div style="width: 58%;">
+                    <h3>30.3 Payment Schedule</h3>
+                    <table style="font-size: 8pt; width: 100%;">
+                        <thead>
+                            <tr><th>Installment No</th><th>Due Date</th><th>Amount</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1 (Booking)</td><td>Immediate</td><td>10%</td><td>Paid</td></tr>
+                            <tr><td>2 (Agreement)</td><td>Within 30 Days</td><td>10%</td><td>Pending</td></tr>
+                            <tr><td>3 (Foundation)</td><td>Linked to Milestone</td><td>15%</td><td>Upcoming</td></tr>
+                            <tr><td>4 (Slab Casting)</td><td>Linked to Milestone</td><td>20%</td><td>Upcoming</td></tr>
+                            <tr><td>5 (Possession)</td><td>Final Handover</td><td>Balance</td><td>Upcoming</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="width: 40%;">
+                    <h3>30.4 Payment Methods</h3>
+                    <table style="font-size: 8pt; width: 100%;">
+                        <thead>
+                            <tr><th>Accepted Channels</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Cash (Subject to limits)</td></tr>
+                            <tr><td>Cheque / Demand Draft</td></tr>
+                            <tr><td>Bank Transfer (NEFT/RTGS)</td></tr>
+                            <tr><td>UPI (Unified Payments Interface)</td></tr>
+                            <tr><td>Online Payment Gateway</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h3>30.5 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Late Payment Alerts</strong></td><td>System auto-dispatches SMS/Email demands for overdue installments.</td></tr>
+                    <tr><td><strong>Receipt Generation</strong></td><td>Valid receipts are issued only after explicit bank clearance / realization.</td></tr>
+                    <tr><td><strong>Auto Outstanding Calculation</strong></td><td>Dynamic ledger updates remaining balance immediately post-receipt.</td></tr>
+                    <tr><td><strong>Payment Audit Trail</strong></td><td>Immutable record detailing who processed the payment, when, and how.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 30</span>
+        </div>
+    </div>
+
+    <!-- PAGE 31: Agreement & Document Management -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>31. Agreement & Document Management</h2>
+            
+            <h3>31.1 Module Overview</h3>
+            <p>The Agreement & Document Management Module ensures stringent legal compliance by acting as a secure, centralized digital vault for all customer documentation. Real estate transactions require the exchange, verification, and permanent archival of highly sensitive legal documents. This module automates the generation of complex Builder-Buyer Agreements by merging CRM data directly into approved legal templates, eliminating manual drafting errors. It mandates the uploading and verification of KYC documents prior to proceeding to property registration. Implementing strict role-based access control, it ensures that sensitive data is protected against unauthorized access, while maintaining a comprehensive audit trail of all document interactions.</p>
+
+            <h3>31.2 Document Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Booking Approved</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Generate Agreement</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Customer Verification</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Digital Approval</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Store Documents</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Registration Ready</div>
+            </div>
+
+            <h3>31.3 Document Requirements</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Document</th><th width="25%">Mandatory</th><th width="40%">Uploaded By</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>PAN Card</strong></td><td>Yes</td><td>Customer / Sales Executive</td></tr>
+                    <tr><td><strong>Aadhar / National ID</strong></td><td>Yes</td><td>Customer / Sales Executive</td></tr>
+                    <tr><td><strong>Builder-Buyer Agreement</strong></td><td>Yes</td><td>System Generated / Legal Team</td></tr>
+                    <tr><td><strong>Photographs</strong></td><td>Yes</td><td>Customer / Sales Executive</td></tr>
+                    <tr><td><strong>Payment Receipt</strong></td><td>Yes</td><td>Finance Team</td></tr>
+                    <tr><td><strong>Registration Copy</strong></td><td>Yes</td><td>Legal / Administrative Team</td></tr>
+                    <tr><td><strong>Possession Letter</strong></td><td>Yes</td><td>CRM / Operations Team</td></tr>
+                </tbody>
+            </table>
+
+            <h3>31.4 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Document Versioning</strong></td><td>System retains previous iterations of agreements if amendments occur.</td></tr>
+                    <tr><td><strong>Secure Storage</strong></td><td>Documents are encrypted and stored securely within the cloud repository.</td></tr>
+                    <tr><td><strong>Access Permissions</strong></td><td>Only authorized CRM, Finance, and Legal staff can view or edit documents.</td></tr>
+                    <tr><td><strong>Download History</strong></td><td>Comprehensive tracking logs detailing who downloaded or printed which file.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 31</span>
+        </div>
+    </div>
+
+    <!-- PAGE 32: Finance & Accounts Module -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>32. Finance & Accounts</h2>
+            
+            <h3>32.1 Module Overview</h3>
+            <p>The Finance & Accounts Module acts as the central economic nervous system of the ERP. It provides exhaustive, enterprise-grade accounting capabilities designed specifically for the rigorous demands of real estate development. The module seamlessly consumes transactional data originating from Sales and CRM operations, eliminating duplicate data entry. It oversees the complete management of incoming revenue (bookings, installments), outgoing expenses (vendor payments, payroll), taxation compliance, and rigorous bank reconciliations. Ultimately, it synthesizes vast amounts of financial data into actionable, real-time Profit & Loss statements.</p>
+
+            <h3>32.2 Financial Architecture Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 6px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="display: flex; justify-content: center; gap: 20px; width: 100%;">
+                    <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 120px; text-align: center;">Bookings</div>
+                    <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 120px; text-align: center;">Payments</div>
+                </div>
+                
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #3b7bb5; color: #fff; padding: 6px 15px; border-radius: 4px; font-weight: 600; font-size: 9.5pt; width: 260px; text-align: center; border: 2px solid #2c5d8a;">Accounting Engine (Ledger)</div>
+                
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="display: flex; justify-content: center; gap: 20px; width: 100%;">
+                    <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 120px; text-align: center;">Revenue</div>
+                    <div style="background-color: #e74c3c; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 120px; text-align: center;">Expenses</div>
+                </div>
+                
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #17a2b8; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 260px; text-align: center;">Profit & Loss Reports</div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; gap: 10px;">
+                <div style="width: 58%;">
+                    <h3>32.3 Finance Functions</h3>
+                    <table style="font-size: 8pt; width: 100%;">
+                        <thead>
+                            <tr><th width="30%">Function</th><th width="70%">Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Receipts</strong></td><td>Digital acknowledgement of incoming funds.</td></tr>
+                            <tr><td><strong>Invoices</strong></td><td>Formal generation of payment demands to customers.</td></tr>
+                            <tr><td><strong>Refunds</strong></td><td>Processing ledger entries for cancelled bookings.</td></tr>
+                            <tr><td><strong>GST / Taxation</strong></td><td>Automated calculation of statutory liabilities.</td></tr>
+                            <tr><td><strong>Ledger</strong></td><td>Central, immutable journal of all financial entries.</td></tr>
+                            <tr><td><strong>Reconciliation</strong></td><td>Matching ERP ledger entries with actual bank statements.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="width: 40%;">
+                    <h3>32.4 Critical Reports</h3>
+                    <table style="font-size: 8pt; width: 100%;">
+                        <thead>
+                            <tr><th>Report Type</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Revenue Report</td></tr>
+                            <tr><td>Outstanding Report (Debtors)</td></tr>
+                            <tr><td>Cash Flow Statement</td></tr>
+                            <tr><td>Tax Summary (GST Filing)</td></tr>
+                            <tr><td>Profit & Loss (P&L)</td></tr>
+                            <tr><td>Balance Sheet</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 32</span>
+        </div>
+    </div>
+
+    <!-- PAGE 33: Broker / Channel Partner Management -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>33. Broker / Channel Partner Management</h2>
+            
+            <h3>33.1 Module Overview</h3>
+            <p>The Broker / Channel Partner Management Module oversees the external sales network, which is often a massive driver of real estate revenue. It provides a structured framework to register, manage, and remunerate third-party agents. By accurately tracking which broker referred which lead, the system eliminates debilitating disputes over commission claims. It automates the complex calculation of variable commission percentages based on specific project allocations or sales targets, subsequently routing these calculations for management approval and final disbursement through the Finance module.</p>
+
+            <h3>33.2 Broker Operations Workflow</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Broker Registration</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Property Allocation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Lead Referral</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Customer Booking</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Commission Approval</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Commission Payment</div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; gap: 10px;">
+                <div style="width: 58%;">
+                    <h3>33.3 Broker Details</h3>
+                    <table style="font-size: 8pt; width: 100%;">
+                        <thead>
+                            <tr><th width="35%">Field</th><th width="65%">Description</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Broker ID</strong></td><td>System-generated unique partner code.</td></tr>
+                            <tr><td><strong>Company</strong></td><td>Name of the brokering agency.</td></tr>
+                            <tr><td><strong>Contact Person</strong></td><td>Primary liaison for the agency.</td></tr>
+                            <tr><td><strong>Commission %</strong></td><td>Agreed payout rate per successful transaction.</td></tr>
+                            <tr><td><strong>Projects Assigned</strong></td><td>Specific developments they are authorized to sell.</td></tr>
+                            <tr><td><strong>Status</strong></td><td>Active, Suspended, or Terminated.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="width: 40%;">
+                    <h3>33.4 Commission Rules</h3>
+                    <table style="font-size: 8pt; width: 100%;">
+                        <thead>
+                            <tr><th>Rule / Feature</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Generate Commission (Auto-calc)</td></tr>
+                            <tr><td>Approve Commission (Hierarchy)</td></tr>
+                            <tr><td>Payment History (Ledger Integration)</td></tr>
+                            <tr><td>Commission Reports (MIS)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p style="margin-top: 15px; font-size: 8.5pt;"><strong>Conclusion:</strong> The Broker Management Module is inherently synergistic. It interfaces directly with the CRM to track lead origination, synchronizes with Sales to verify successful bookings, informs the Finance module to authorize payout disbursements, and ultimately aggregates this data into Reporting dashboards to analyze external partner performance and ROI.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 33</span>
+        </div>
     </div>
     
-    <!-- PAGE 30: ERP: Inventory Management -->
+    <!-- PAGE 34: Reports & Analytics Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>30. ERP: Inventory Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Inventory Management will be provided here.]</p><div class="placeholder-box">ERP: Inventory Management - Content Placeholder</div></div>
-        <div class="footer">Page 30</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>34. Reports & Analytics Module</h2>
+            
+            <h3>34.1 Module Overview</h3>
+            <p>The Reports & Analytics Module is the intelligence layer of the ERP and CRM ecosystem. By aggregating massive volumes of transactional data generated across Sales, Finance, Inventory, and Operations, it empowers management to monitor enterprise-wide performance. This module transitions the organization from reactive operations to proactive strategy. It generates highly structured MIS (Management Information System) reports detailing sales velocity, booking conversions, revenue collections, inventory aging, customer activities, and employee productivity. Through advanced data filtering and automated scheduled distributions, it ensures stakeholders receive critical, real-time insights tailored to their specific operational domains, ultimately driving informed, data-backed financial and strategic decisions.</p>
+
+            <h3>34.2 Reports Architecture Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 70%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="display: flex; justify-content: center; gap: 20px; width: 100%;">
+                    <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 140px; text-align: center;">CRM Data</div>
+                    <div style="font-weight: bold; font-size: 14pt; color: var(--text-color);">+</div>
+                    <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 140px; text-align: center;">ERP Data</div>
+                </div>
+                
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #3b7bb5; color: #fff; padding: 6px 15px; border-radius: 4px; font-weight: 600; font-size: 9.5pt; width: 260px; text-align: center; border: 2px solid #2c5d8a;">Analytics Engine</div>
+                
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%;">
+                    <div style="background-color: #28a745; color: #fff; padding: 4px 10px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 120px; text-align: center;">Sales Reports</div>
+                    <div style="background-color: #28a745; color: #fff; padding: 4px 10px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 120px; text-align: center;">Customer Reports</div>
+                    <div style="background-color: #28a745; color: #fff; padding: 4px 10px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 120px; text-align: center;">Inventory Reports</div>
+                    <div style="background-color: #28a745; color: #fff; padding: 4px 10px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 120px; text-align: center;">Financial Reports</div>
+                    <div style="background-color: #28a745; color: #fff; padding: 4px 10px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 120px; text-align: center;">Project Reports</div>
+                    <div style="background-color: #e74c3c; color: #fff; padding: 4px 10px; border-radius: 15px; font-weight: 600; font-size: 8pt; width: 140px; text-align: center;">Executive Dashboard</div>
+                </div>
+            </div>
+
+            <h3>34.3 Available Reports</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Report Name</th><th width="65%">Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Lead Report</strong></td><td>Tracks raw lead generation volume sorted by marketing source and date.</td></tr>
+                    <tr><td><strong>Sales Report</strong></td><td>Measures total units sold, categorized by project, tower, and time period.</td></tr>
+                    <tr><td><strong>Inventory Report</strong></td><td>Details current availability, total booked, and unsold property aging.</td></tr>
+                    <tr><td><strong>Booking Report</strong></td><td>Chronological list of all successful applications pending registration.</td></tr>
+                    <tr><td><strong>Outstanding Report</strong></td><td>Identifies overdue customer installments and calculated penalty interest.</td></tr>
+                    <tr><td><strong>Revenue Report</strong></td><td>Aggregates realized cash flow vs. projected receivables.</td></tr>
+                    <tr><td><strong>Project Status Report</strong></td><td>Correlates construction milestones with payment demands.</td></tr>
+                    <tr><td><strong>Employee Performance Report</strong></td><td>Metrics evaluating individual sales executive conversion rates.</td></tr>
+                    <tr><td><strong>Customer Report</strong></td><td>Master demographic and transactional history of the client base.</td></tr>
+                    <tr><td><strong>Broker Commission Report</strong></td><td>Calculates pending and paid liabilities to external channel partners.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>34.4 Business Benefits</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Benefit</th><th width="70%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Data-Driven Decisions</strong></td><td>Eliminates guesswork by providing factual, real-time performance metrics.</td></tr>
+                    <tr><td><strong>Operational Efficiency</strong></td><td>Automates the laborious process of manual data aggregation and Excel formatting.</td></tr>
+                    <tr><td><strong>Revenue Optimization</strong></td><td>Instantly highlights outstanding payments to accelerate cash flow recovery.</td></tr>
+                    <tr><td><strong>Performance Tracking</strong></td><td>Enforces accountability across departments via transparent KPIs.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 34</span>
+        </div>
     </div>
     
-    <!-- PAGE 31: ERP: Asset Management -->
+    <!-- PAGE 35: Notification Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>31. ERP: Asset Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Asset Management will be provided here.]</p><div class="placeholder-box">ERP: Asset Management - Content Placeholder</div></div>
-        <div class="footer">Page 31</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>35. Notification Management</h2>
+            
+            <h3>35.1 Module Overview</h3>
+            <p>The Notification Management Module serves as the centralized communications dispatcher for the entire ERP system. Real estate transactions span several months, requiring constant, timely communication between the enterprise and the customer. This module ensures that critical milestones are never missed by triggering automated, multi-channel alerts based on predefined system events. Whether notifying a customer of an impending payment deadline, alerting a sales executive to an upcoming site visit, or broadcasting a project launch to channel partners, the module ensures consistent, template-driven communication that significantly enhances the customer experience and operational compliance.</p>
+
+            <h3>35.2 Notification Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: #e74c3c; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">System Event Triggered</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Generate Notification</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">Choose Channel</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="display: flex; justify-content: center; gap: 10px; width: 100%;">
+                    <div style="background-color: #3b7bb5; color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 8pt; width: 80px; text-align: center;">Email</div>
+                    <div style="background-color: #3b7bb5; color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 8pt; width: 80px; text-align: center;">SMS</div>
+                    <div style="background-color: #3b7bb5; color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 8pt; width: 100px; text-align: center;">In-App Alert</div>
+                </div>
+                
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 200px; text-align: center;">User Receives Notification</div>
+            </div>
+
+            <h3>35.3 Notification Types</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Notification Type</th><th width="65%">Trigger Event</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Booking Confirmation</strong></td><td>Sent immediately upon management approval of a booking application.</td></tr>
+                    <tr><td><strong>Payment Reminder</strong></td><td>Dispatched 7, 3, and 1 day prior to an installment due date.</td></tr>
+                    <tr><td><strong>Site Visit Reminder</strong></td><td>Sent to the customer and executive 2 hours before a scheduled visit.</td></tr>
+                    <tr><td><strong>Agreement Ready</strong></td><td>Alerts the customer that legal documents are ready for digital signature.</td></tr>
+                    <tr><td><strong>Registration Reminder</strong></td><td>Notifies involved parties of the scheduled property registration date.</td></tr>
+                    <tr><td><strong>Possession Notice</strong></td><td>Formal broadcast upon the issuance of the Occupancy Certificate.</td></tr>
+                    <tr><td><strong>Task Reminder</strong></td><td>Internal ping to employees for overdue follow-ups or pending approvals.</td></tr>
+                    <tr><td><strong>System Alert</strong></td><td>Critical security notifications (e.g., unauthorized login attempts).</td></tr>
+                </tbody>
+            </table>
+
+            <h3>35.4 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Notification Preferences</strong></td><td>Users can opt-in/opt-out of specific non-critical marketing channels.</td></tr>
+                    <tr><td><strong>Retry Mechanism</strong></td><td>System attempts redelivery up to 3 times for failed SMS/Email dispatches.</td></tr>
+                    <tr><td><strong>Delivery Status</strong></td><td>Integration with gateway APIs to capture Sent, Delivered, or Failed states.</td></tr>
+                    <tr><td><strong>Notification Logs</strong></td><td>Permanent archival of all sent messages to serve as legal proof of communication.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 35</span>
+        </div>
     </div>
     
-    <!-- PAGE 32: ERP: Procurement & Sourcing -->
+    <!-- PAGE 36: User Management Module -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>32. ERP: Procurement & Sourcing</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Procurement & Sourcing will be provided here.]</p><div class="placeholder-box">ERP: Procurement & Sourcing - Content Placeholder</div></div>
-        <div class="footer">Page 32</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>36. User Management</h2>
+            
+            <h3>36.1 Module Overview</h3>
+            <p>The User Management Module is the administrative core for overseeing all internal and external personnel accessing the ERP platform. In a complex real estate enterprise, hundreds of employees across distinct departments (Sales, Marketing, Legal, Finance) require interaction with the system. This module centralizes the provisioning of user accounts, enabling administrators to seamlessly onboard new hires, assign specific departmental roles, define hierarchical reporting lines, and swiftly deactivate offboarded staff. By rigorously structuring user identities, it forms the foundational layer for all downstream security and workflow routing protocols.</p>
+
+            <h3>36.2 Role Management Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: #e74c3c; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Administrator</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Create User</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Assign Role</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Assign Permissions</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Activate Account</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">User Login</div>
+            </div>
+
+            <h3>36.3 User Profile Matrix</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="15%">User ID</th><th width="25%">Employee Name</th><th width="20%">Department</th><th width="15%">Role</th><th width="10%">Status</th><th width="15%">Last Login</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>EMP-1001</td><td>Rajesh Sharma</td><td>Sales</td><td>Executive</td><td>Active</td><td>2024-03-12 09:15</td></tr>
+                    <tr><td>EMP-1023</td><td>Anita Desai</td><td>Finance</td><td>Manager</td><td>Active</td><td>2024-03-12 08:45</td></tr>
+                    <tr><td>EMP-1045</td><td>Vikram Singh</td><td>Admin</td><td>Super Admin</td><td>Active</td><td>2024-03-12 10:05</td></tr>
+                    <tr><td>EMP-1088</td><td>Priya Patel</td><td>Marketing</td><td>Analyst</td><td>Locked</td><td>2024-02-28 17:30</td></tr>
+                    <tr><td>EMP-1102</td><td>Karan Malhotra</td><td>CRM</td><td>Executive</td><td>Inactive</td><td>2023-11-15 14:20</td></tr>
+                </tbody>
+            </table>
+
+            <h3>36.4 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Password Policy</strong></td><td>Minimum 8 characters, requiring alphanumeric and special character combinations.</td></tr>
+                    <tr><td><strong>Account Lock</strong></td><td>Automatic suspension triggered after 5 consecutive failed authentication attempts.</td></tr>
+                    <tr><td><strong>Password Reset</strong></td><td>Self-service capability via verified corporate email or registered mobile OTP.</td></tr>
+                    <tr><td><strong>Session Timeout</strong></td><td>Automatic logout enforced after 30 minutes of system inactivity.</td></tr>
+                    <tr><td><strong>Multi-factor Authentication</strong></td><td>Optional (but recommended) layer requiring OTP verification for off-network logins.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 36</span>
+        </div>
     </div>
     
-    <!-- PAGE 33: ERP: Vendor Management -->
+    <!-- PAGE 37: Security & Access Control -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>33. ERP: Vendor Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Vendor Management will be provided here.]</p><div class="placeholder-box">ERP: Vendor Management - Content Placeholder</div></div>
-        <div class="footer">Page 33</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>37. Security & Access Control</h2>
+            
+            <h3>37.1 Module Overview</h3>
+            <p>The Security & Access Control Module is designed to aggressively protect the enterprise's highly confidential financial, customer, and inventory data against unauthorized internal and external threats. Given the multi-tenant nature of the ERP platform, enforcing strict data boundaries is critical. This module implements robust Role-Based Access Control (RBAC), ensuring that an employee in Marketing cannot view Finance ledgers, and a Sales Executive can only access their assigned leads rather than the global pipeline. By enforcing stringent encryption protocols at rest and in transit, it guarantees adherence to global data protection regulations and establishes trust across the digital ecosystem.</p>
+
+            <h3>37.2 Security Architecture Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Users</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Authentication (Login/MFA)</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Authorization (RBAC)</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Business Modules</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #3b7bb5; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Database (Encrypted)</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #17a2b8; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Audit Logs</div>
+            </div>
+
+            <h3>37.3 Security Features</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Feature</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>HTTPS Protocol</strong></td><td>Enforces secure, TLS/SSL encrypted web traffic across the entire application.</td></tr>
+                    <tr><td><strong>Password Encryption</strong></td><td>Credentials irreversibly hashed using industry-standard algorithms (e.g., bcrypt).</td></tr>
+                    <tr><td><strong>RBAC Implementation</strong></td><td>Granular CRUD (Create, Read, Update, Delete) permissions mapped to user roles.</td></tr>
+                    <tr><td><strong>Data Encryption</strong></td><td>Sensitive fields (e.g., Payment Details, PAN) encrypted within the database at rest.</td></tr>
+                    <tr><td><strong>Audit Trail</strong></td><td>Indelible recording of all write-operations, capturing user, action, and timestamp.</td></tr>
+                    <tr><td><strong>Automated Backup</strong></td><td>Geographically redundant, daily encrypted database snapshots to prevent data loss.</td></tr>
+                    <tr><td><strong>Session Management</strong></td><td>Secure token issuance (JWT) with immediate invalidation upon logout.</td></tr>
+                    <tr><td><strong>Login History</strong></td><td>Tracking of originating IP addresses and geolocation to detect anomalous access.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>37.4 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Strong Password Policy</strong></td><td>Mandatory rotation every 90 days; prevents reuse of the last 3 passwords.</td></tr>
+                    <tr><td><strong>Role Validation</strong></td><td>API endpoints rigidly verify tokens to prevent unauthorized deep-linking or tampering.</td></tr>
+                    <tr><td><strong>Access Logging</strong></td><td>All critical views (e.g., exporting customer lists) mandate immediate audit logging.</td></tr>
+                    <tr><td><strong>Failed Login Handling</strong></td><td>Graduated time delays introduced to proactively thwart brute-force attacks.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 37</span>
+        </div>
     </div>
     
-    <!-- PAGE 34: ERP: Project Management -->
+    <!-- PAGE 38: Audit Logs & Activity Tracking -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>34. ERP: Project Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Project Management will be provided here.]</p><div class="placeholder-box">ERP: Project Management - Content Placeholder</div></div>
-        <div class="footer">Page 34</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>38. Audit Logs & Activity Tracking</h2>
+            
+            <h3>38.1 Module Overview</h3>
+            <p>The Audit Logs & Activity Tracking Module acts as the immutable surveillance system for the ERP. In high-value real estate transactions, accountability is paramount. This module autonomously records every significant interaction—creating a booking, altering inventory pricing, updating customer records, or downloading legal documents. By providing an unalterable chronological record of "who did what, and when," it serves as the ultimate diagnostic tool for administrators investigating discrepancies, settling internal disputes, and demonstrating strict adherence to regulatory compliance standards during external audits.</p>
+
+            <h3>38.2 Audit Workflow Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 4px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">User Login</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Perform Activity</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">System Records Activity</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #3b7bb5; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Audit Database (Write-Only)</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #17a2b8; color: #fff; padding: 4px 15px; border-radius: 4px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Administrator Review</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: #28a745; color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 220px; text-align: center;">Compliance Report</div>
+            </div>
+
+            <h3>38.3 Audit Log Structure</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="20%">Activity</th><th width="15%">Performed By</th><th width="20%">Timestamp</th><th width="15%">Module</th><th width="15%">IP Address</th><th width="15%">Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Price Updated (U-102)</td><td>Vikram S. (Admin)</td><td>2024-03-12 10:15:22</td><td>Inventory</td><td>192.168.1.45</td><td>Success</td></tr>
+                    <tr><td>Booking Approved (B-89)</td><td>Anita D. (Finance)</td><td>2024-03-12 09:45:10</td><td>Booking</td><td>192.168.1.12</td><td>Success</td></tr>
+                    <tr><td>Customer Export Attempt</td><td>Rajesh S. (Sales)</td><td>2024-03-11 18:30:05</td><td>CRM</td><td>10.0.0.56</td><td>Denied</td></tr>
+                    <tr><td>Password Reset</td><td>System</td><td>2024-03-10 14:20:11</td><td>Security</td><td>External</td><td>Success</td></tr>
+                    <tr><td>Agreement Download</td><td>Priya P. (Marketing)</td><td>2024-03-10 11:15:33</td><td>Documents</td><td>192.168.1.88</td><td>Success</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 15px; font-size: 8.5pt;"><strong>Importance of Compliance:</strong> By maintaining a granular, tamper-proof ledger of user actions, the organization drastically reduces the risk of internal fraud, accidental data corruption, and unauthorized data exfiltration. This architectural commitment ensures that the ERP system operates not just efficiently, but with absolute institutional integrity.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 38</span>
+        </div>
     </div>
     
-    <!-- PAGE 35: ERP: Resource Allocation -->
+    <!-- PAGE 39: Dashboard KPIs & Business Intelligence -->
     <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>35. ERP: Resource Allocation</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Resource Allocation will be provided here.]</p><div class="placeholder-box">ERP: Resource Allocation - Content Placeholder</div></div>
-        <div class="footer">Page 35</div>
-    </div>
-    
-    <!-- PAGE 36: ERP: Human Resources (HR) -->
-    <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>36. ERP: Human Resources (HR)</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Human Resources (HR) will be provided here.]</p><div class="placeholder-box">ERP: Human Resources (HR) - Content Placeholder</div></div>
-        <div class="footer">Page 36</div>
-    </div>
-    
-    <!-- PAGE 37: ERP: Payroll Management -->
-    <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>37. ERP: Payroll Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Payroll Management will be provided here.]</p><div class="placeholder-box">ERP: Payroll Management - Content Placeholder</div></div>
-        <div class="footer">Page 37</div>
-    </div>
-    
-    <!-- PAGE 38: ERP: Employee Self-Service -->
-    <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>38. ERP: Employee Self-Service</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Employee Self-Service will be provided here.]</p><div class="placeholder-box">ERP: Employee Self-Service - Content Placeholder</div></div>
-        <div class="footer">Page 38</div>
-    </div>
-    
-    <!-- PAGE 39: ERP: Time & Attendance -->
-    <div class="page">
-        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
-        <div class="content"><h2>39. ERP: Time & Attendance</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Time & Attendance will be provided here.]</p><div class="placeholder-box">ERP: Time & Attendance - Content Placeholder</div></div>
-        <div class="footer">Page 39</div>
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>39. Dashboard KPIs & Business Intelligence</h2>
+            
+            <h3>39.1 Module Overview</h3>
+            <p>The Dashboard KPIs & Business Intelligence Module functions as the graphical executive summary of the entire enterprise. It synthesizes millions of underlying data points into highly visual, instantly comprehensible widgets and charts. Upon logging in, stakeholders are presented with role-specific dashboards that highlight Key Performance Indicators (KPIs). This visual storytelling—translating complex tabular data into actionable intelligence—allows executives to monitor organizational pulse, identify operational bottlenecks, and pivot strategic resources with unprecedented agility.</p>
+
+            <h3>39.2 Dashboard Wireframe Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 15px; background-color: #f8f9fa; margin: 15px auto; width: 85%; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;">
+                    <!-- Row 1 -->
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #3498db;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">Total Leads</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">4,250</div>
+                    </div>
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #2ecc71;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">New Customers</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">312</div>
+                    </div>
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #f1c40f;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">Bookings</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">145</div>
+                    </div>
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #9b59b6;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">Revenue</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">$12.5M</div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #e74c3c;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">Outstanding</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">$2.1M</div>
+                    </div>
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #34495e;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">Inventory Avail</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">840</div>
+                    </div>
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #1abc9c;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">Site Visits</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">89</div>
+                    </div>
+                    <div style="flex: 1 1 20%; background-color: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 10px; text-align: center; border-left: 4px solid #e67e22;">
+                        <div style="font-size: 7.5pt; color: #666; font-weight: bold; text-transform: uppercase;">Projects</div>
+                        <div style="font-size: 14pt; color: #333; font-weight: 800; margin-top: 5px;">4</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>39.3 Key Performance Indicators (KPIs)</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="25%">KPI</th><th width="35%">Formula / Metric</th><th width="40%">Business Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Sales Conversion</strong></td><td>(Bookings / Total Leads) * 100</td><td>Measures the efficiency of the sales funnel and marketing quality.</td></tr>
+                    <tr><td><strong>Revenue Tracking</strong></td><td>Sum of Paid Installments</td><td>Provides exact liquidity metric for operations and vendor payments.</td></tr>
+                    <tr><td><strong>Outstanding Payments</strong></td><td>Billed Amount - Received Amount</td><td>Identifies cash-flow bottlenecks and targets for the recovery team.</td></tr>
+                    <tr><td><strong>Inventory Velocity</strong></td><td>Units Sold / Month</td><td>Determines market absorption rates to guide future project pricing.</td></tr>
+                    <tr><td><strong>Top Sales Executive</strong></td><td>Ranked by Bookings closed</td><td>Identifies high performers for incentive payouts and internal coaching.</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 15px; font-size: 8.5pt;"><strong>Conclusion:</strong> By democratizing access to business intelligence, the ERP ensures that decisions are no longer made on intuition, but on irrefutable metrics. Real-time dashboards transform raw operational data into strategic foresight, enabling the organization to optimize marketing spend, accelerate collections, and decisively outmaneuver market competition.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 39</span>
+        </div>
     </div>
     
     <!-- PAGE 40: ERP: Operations Management -->
