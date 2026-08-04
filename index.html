@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate ERP & CRM Management System - FDD</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- PAGE 1: Cover Page -->
+    <!-- PAGE 1: Cover Page -->
+    <div class="page cover-page">
+        <div class="cover-bg-image"></div>
+        <div class="cover-content">
+            <div class="document-title">
+                <h1>Real Estate ERP & CRM Management System</h1>
+                <h2>Functional Design Document (FDD)</h2>
+            </div>
+            
+            <div class="document-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Document Version:</span>
+                    <span class="meta-value">1.0</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Document Status:</span>
+                    <span class="meta-value">Draft</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Prepared By:</span>
+                    <span class="meta-value">Business Analysis Team</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Project Type:</span>
+                    <span class="meta-value">Enterprise Resource Planning (ERP) & Customer Relationship Management (CRM)</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Date:</span>
+                    <span class="meta-value">August 2026</span>
+                </div>
+            </div>
+
+            <div class="confidentiality-statement">
+                <p>This document contains confidential functional specifications, workflows, business requirements, and architectural information for the Real Estate ERP & CRM Management System. Distribution of this document is restricted to authorized stakeholders and project members.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 1</span>
+        </div>
+    </div>
+
+    <!-- PAGE 2: Document Control & Revision History -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2><i class="fa-solid fa-file-signature"></i> 2. Document Control</h2>
+            
+            <h3>2.1 Document Information</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td width="30%"><strong>Document Name</strong></td>
+                        <td>Real Estate ERP & CRM Functional Design Document</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project Name</strong></td>
+                        <td>Real Estate ERP & CRM Management System</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Version</strong></td>
+                        <td>1.0</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Status</strong></td>
+                        <td>Draft</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Document Type</strong></td>
+                        <td>Functional Design Document (FDD)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prepared By</strong></td>
+                        <td>Business Analysis Team</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reviewed By</strong></td>
+                        <td>Project Manager</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Approved By</strong></td>
+                        <td>Product Owner</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date</strong></td>
+                        <td>August 2026</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.2 Revision History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="10%">Version</th>
+                        <th width="15%">Date</th>
+                        <th width="25%">Author</th>
+                        <th width="50%">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.0</td>
+                        <td>August 2026</td>
+                        <td>Business Analysis Team</td>
+                        <td>Initial Functional Design Document</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.3 Document Purpose</h3>
+            <p>This document defines the functional requirements, business processes, workflows, user roles, business rules, system modules, architecture, integrations, and operational logic of the Real Estate ERP & CRM Management System. Its primary objective is to bridge the gap between business needs and technical implementation by providing a clear, structured, and comprehensive blueprint of the software solution. It serves as a central reference point for stakeholders to validate requirements, business analysts to define workflows, developers to understand implementation specifics, QA engineers to formulate test cases, and project managers to govern the scope throughout the software development lifecycle. By detailing every interaction and process within the system, this FDD ensures alignment across all teams and guarantees that the final delivered product successfully addresses all enterprise objectives.</p>
+
+            <h3>2.4 Intended Audience</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="30%">Role</th>
+                        <th width="70%">Responsibility</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Business Analyst</strong></td>
+                        <td>To map functional requirements and validate business workflows.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Project Manager</strong></td>
+                        <td>To track project scope, deliverables, and alignment with business goals.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Product Owner</strong></td>
+                        <td>To approve features, ensure value delivery, and validate system capabilities.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Developers</strong></td>
+                        <td>To reference system logic, architecture, and module specifications for coding.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>QA/Test Engineers</strong></td>
+                        <td>To build test plans and write test cases based on defined functional logic.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UI/UX Designers</strong></td>
+                        <td>To align interface mockups with functional flows and user interactions.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Client Stakeholders</strong></td>
+                        <td>To review and sign off on the proposed software solution and workflows.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 2</span>
+        </div>
+    </div>
+
+    <!-- PAGE 3: Table of Contents -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content toc">
+            <h2><i class="fa-solid fa-list"></i> 3. Table of Contents</h2>
+            <ul class="toc-list">
+                <li><span class="toc-title">1. Document Control</span><span class="toc-dots"></span><span class="toc-page">2</span></li>
+                <li><span class="toc-title">2. Table of Contents</span><span class="toc-dots"></span><span class="toc-page">3</span></li>
+                <li><span class="toc-title">3. Project Introduction</span><span class="toc-dots"></span><span class="toc-page">4</span></li>
+                <li><span class="toc-title">4. Problem Statement</span><span class="toc-dots"></span><span class="toc-page">5</span></li>
+                <li><span class="toc-title">5. Project Objectives</span><span class="toc-dots"></span><span class="toc-page">6</span></li>
+                <li><span class="toc-title">6. Project Scope</span><span class="toc-dots"></span><span class="toc-page">7</span></li>
+                <li><span class="toc-title">7. Business Overview</span><span class="toc-dots"></span><span class="toc-page">8</span></li>
+                <li><span class="toc-title">8. Existing Business Process (As-Is)</span><span class="toc-dots"></span><span class="toc-page">9</span></li>
+                <li><span class="toc-title">9. Proposed Business Process (To-Be)</span><span class="toc-dots"></span><span class="toc-page">10</span></li>
+                <li><span class="toc-title">10. System Overview</span><span class="toc-dots"></span><span class="toc-page">11</span></li>
+                <li><span class="toc-title">11. High-Level Architecture</span><span class="toc-dots"></span><span class="toc-page">12</span></li>
+                <li><span class="toc-title">12. Component Architecture</span><span class="toc-dots"></span><span class="toc-page">13</span></li>
+                <li><span class="toc-title">13. Module Architecture</span><span class="toc-dots"></span><span class="toc-page">14</span></li>
+                <li><span class="toc-title">14. Deployment Architecture</span><span class="toc-dots"></span><span class="toc-page">15</span></li>
+                <li><span class="toc-title">15. User Roles & Permissions</span><span class="toc-dots"></span><span class="toc-page">16</span></li>
+                <li><span class="toc-title">16. CRM Functional Modules</span><span class="toc-dots"></span><span class="toc-page">17</span></li>
+                <li><span class="toc-title">17. ERP Functional Modules</span><span class="toc-dots"></span><span class="toc-page">33</span></li>
+                <li><span class="toc-title">18. Business Workflows</span><span class="toc-dots"></span><span class="toc-page">49</span></li>
+                <li><span class="toc-title">19. Use Case Diagrams</span><span class="toc-dots"></span><span class="toc-page">53</span></li>
+                <li><span class="toc-title">20. Data Flow Diagrams</span><span class="toc-dots"></span><span class="toc-page">55</span></li>
+                <li><span class="toc-title">21. Entity Relationship Diagram</span><span class="toc-dots"></span><span class="toc-page">56</span></li>
+                <li><span class="toc-title">22. Functional Requirements</span><span class="toc-dots"></span><span class="toc-page">57</span></li>
+                <li><span class="toc-title">23. Non-Functional Requirements</span><span class="toc-dots"></span><span class="toc-page">60</span></li>
+                <li><span class="toc-title">24. Security & Access Control</span><span class="toc-dots"></span><span class="toc-page">61</span></li>
+                <li><span class="toc-title">25. Third-Party Integrations</span><span class="toc-dots"></span><span class="toc-page">62</span></li>
+                <li><span class="toc-title">26. Future Enhancements</span><span class="toc-dots"></span><span class="toc-page">63</span></li>
+                <li><span class="toc-title">27. Conclusion</span><span class="toc-dots"></span><span class="toc-page">64</span></li>
+            </ul>
+            <p class="toc-note">Note: Page numbers are based on the current version of the document and may be updated automatically if the document structure changes.</p>
+        </div>
+        <div class="footer">Page 3</div>
+    </div>
+
+    <!-- PAGE 4: Introduction -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>4. Project Introduction</h2>
+            
+            <h3>4.1 Project Introduction</h3>
+            <p>The Real Estate ERP & CRM Management System is an integrated enterprise solution meticulously designed to automate and manage end-to-end real estate business operations. In an industry characterized by complex sales cycles, multifaceted property management, and critical customer interactions, this system serves as the foundational infrastructure to streamline workflows across all departments. The Customer Relationship Management (CRM) module acts as the central hub for managing customer interactions, capturing lead generation from various integrated channels, tracking client inquiries, scheduling automated follow-ups, coordinating physical site visits, and nurturing sales opportunities seamlessly through the conversion pipeline.</p>
+            <p>Concurrently, the Enterprise Resource Planning (ERP) module provides robust capabilities to manage dynamic property inventory, detailed project information, unit bookings, complex payment schedules, legal agreements, financial transactions, document management, and internal employee operations. By integrating these critical functions into a singular, unified platform, the primary objective is to centralize vital business data, systematically eliminate redundant manual processes, mitigate data silos, and significantly improve overall operational efficiency. Furthermore, the system is architected to support informed decision-making at the management and executive levels through real-time data visibility, comprehensive reporting, and actionable analytics.</p>
+            
+            <h3>4.2 Purpose of the System</h3>
+            <ul>
+                <li>Centralized management of customer profiles, interactions, and property inventory data.</li>
+                <li>Automation of sales pipelines, marketing campaigns, and core operational workflows.</li>
+                <li>Improved cross-functional collaboration between sales, operations, finance, and human resources departments.</li>
+                <li>Accurate and transparent tracking of property bookings, payment schedules, and financial collections.</li>
+                <li>Better customer relationship management through timely follow-ups and prompt issue resolution.</li>
+                <li>Real-time reporting and advanced analytics for performance monitoring and strategic planning.</li>
+                <li>Secure, role-based access control ensuring the confidentiality and integrity of critical business information.</li>
+            </ul>
+
+            <h3>4.3 Key Business Benefits</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="30%">Business Benefit</th>
+                        <th width="70%">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Improved Lead Conversion</strong></td>
+                        <td>Enables timely follow-ups, automated lead assignments, and structured pipeline management, directly increasing the successful conversion of prospects into buyers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Centralized Information</strong></td>
+                        <td>Creates a single source of truth for all customer, property, and financial data, eliminating data discrepancies and reducing search times.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Process Automation</strong></td>
+                        <td>Reduces manual data entry and administrative overhead by automating routine tasks such as invoice generation, payment reminders, and report creation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Better Customer Experience</strong></td>
+                        <td>Provides faster response times, personalized communications, and transparent interactions throughout the entire customer journey.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enhanced Reporting</strong></td>
+                        <td>Equips management with customized dashboards and real-time reports to monitor key performance indicators (KPIs) and operational bottlenecks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Increased Operational Efficiency</strong></td>
+                        <td>Streamlines cross-departmental workflows, minimizes errors, and optimizes resource allocation across the enterprise.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>In summary, the Real Estate ERP & CRM Management System provides a highly scalable, secure, and integrated platform capable of supporting the complete lifecycle of property sales and customer relationship management, driving sustained business growth.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 4</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 5: Problem Statement & Business Challenges -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>5. Problem Statement & Business Challenges</h2>
+            
+            <h3>5.1 Problem Statement</h3>
+            <p>Many real estate organizations continue to rely on spreadsheets, paper records, emails, phone calls, and disconnected software systems to manage their operations. These fragmented processes result in duplicate data, missed customer follow-ups, delayed booking confirmations, inconsistent inventory records, payment tracking issues, document management challenges, and limited visibility into business performance. The absence of a centralized platform makes collaboration between Sales, Marketing, Finance, Customer Support, and Management highly inefficient. This fragmentation not only impedes daily operational workflows but also negatively impacts overall customer satisfaction, thereby restricting the organization's potential for sustainable business growth and competitive advantage in the market.</p>
+            
+            <h3>5.2 Current Business Challenges</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="35%">Challenge</th>
+                        <th width="65%">Business Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Manual Lead Tracking</strong></td>
+                        <td>Missed follow-ups and delayed responses, leading to lost sales opportunities.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Disconnected Customer Records</strong></td>
+                        <td>Duplicate and inconsistent information across departments.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Poor Inventory Visibility</strong></td>
+                        <td>Incorrect property availability status, risking double bookings.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manual Booking Process</strong></td>
+                        <td>Increased processing time, human errors, and inefficient contract generation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payment Tracking Issues</strong></td>
+                        <td>Delayed collections, missing payment reminders, and reporting inaccuracies.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Document Management</strong></td>
+                        <td>Difficulty locating legal agreements, ID proofs, and customer documents securely.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Limited Reporting</strong></td>
+                        <td>Slow decision-making due to the lack of real-time operational data and analytics.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Departmental Communication</strong></td>
+                        <td>Inefficient coordination between teams, causing delays in issue resolution.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5.3 Need for the Proposed Solution</h3>
+            <p>The proposed Real Estate ERP & CRM Management System comprehensively addresses these challenges by centralizing business information into a single, unified database. By automating manual workflows, improving data accuracy across departments, enabling secure role-based access, and providing real-time reporting dashboards, the system will support efficient business operations, reduce administrative overhead, and ultimately deliver an enhanced and seamless customer service experience.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 5</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 6: Project Objectives -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>6. Project Objectives</h2>
+            
+            <h3>6.1 Project Objectives</h3>
+            <p>The primary objective of the Real Estate ERP & CRM Management System is to automate, integrate, and optimize the complete real estate business lifecycle. This sophisticated system aims to systematically improve operational efficiency, drastically reduce manual administrative effort, and significantly enhance customer relationship management capabilities across the organization. By centralizing vital business data into a single unified architecture, the platform ensures seamless data flow between all functional departments. Additionally, the system is designed to provide comprehensive, real-time visibility into complex sales pipelines, dynamic property inventory, intricate financial transactions, and ongoing project activities, ensuring that stakeholders at all levels have access to accurate, up-to-date information for strategic planning and execution.</p>
+            
+            <h3>6.2 Business Objectives</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="35%">Objective</th>
+                        <th width="65%">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Centralized Data Management</strong></td>
+                        <td>Provide a single unified platform to securely store and manage all customer, property, and operational data.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Improve Lead Conversion</strong></td>
+                        <td>Enhance the tracking of inquiries and automate strategic follow-ups to increase the successful closing rate.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Automate Business Processes</strong></td>
+                        <td>Reduce manual intervention in recurring tasks such as invoice generation, payment reminders, and contract drafting.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enhance Customer Experience</strong></td>
+                        <td>Deliver highly personalized, prompt, and transparent interactions throughout the entire client buying journey.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Improve Inventory Visibility</strong></td>
+                        <td>Maintain an accurate, real-time status of all property assets to avoid booking conflicts and optimize sales strategies.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Streamline Booking & Payment Management</strong></td>
+                        <td>Standardize the booking lifecycle and simplify the rigorous tracking of payment schedules and financial collections.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Increase Operational Efficiency</strong></td>
+                        <td>Minimize administrative overhead, eliminate data entry redundancies, and accelerate cross-functional task completion.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enable Real-Time Reporting</strong></td>
+                        <td>Equip management with dynamic dashboards and interactive analytics for timely, data-driven decision-making.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strengthen Interdepartmental Collaboration</strong></td>
+                        <td>Bridge communication gaps between Sales, Finance, Operations, and Management through instant, reliable data sharing.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Improve Decision Making</strong></td>
+                        <td>Leverage comprehensive historical and real-time data metrics to accurately identify market trends and optimize corporate strategy.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.3 Technical Objectives</h3>
+            <ul>
+                <li>Centralized and secure database architecture ensuring single source of truth.</li>
+                <li>Robust role-based access control (RBAC) to enforce strict data privacy and security policies.</li>
+                <li>High system availability and reliability to support continuous, uninterrupted business operations.</li>
+                <li>Scalable application architecture designed to accommodate future organizational and data volume growth.</li>
+                <li>Strict data integrity rules, automated validation, and comprehensive audit trails.</li>
+                <li>Secure document management capabilities for storing sensitive legal agreements and identification files.</li>
+                <li>Seamless integration capabilities with essential third-party services (e.g., payment gateways, email servers, SMS providers).</li>
+                <li>Interactive, real-time dashboards and comprehensive reporting modules.</li>
+                <li>Automated system notifications, task alerts, and event-based reminders.</li>
+                <li>Automated, reliable backup and rapid disaster recovery support to prevent critical data loss.</li>
+            </ul>
+
+            <h3>6.4 Expected Business Outcomes</h3>
+            <p>The successful implementation of the Real Estate ERP & CRM Management System will fundamentally transform organizational workflows by significantly reducing error-prone manual work and accelerating core sales processes. This modernization will directly improve customer satisfaction through faster response times and personalized service delivery. Furthermore, the platform will enhance operational transparency across all departments, empowering executive leadership with the actionable insights necessary for strategic planning. Ultimately, this integrated platform will provide the technological foundation required to support sustainable business growth, maximize revenue generation, and maintain a strong competitive edge in the real estate market.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 6</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 7: Project Scope -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>7. Project Scope</h2>
+            
+            <h3>7.1 Project Scope</h3>
+            <p>The Real Estate ERP & CRM Management System is meticulously designed to provide a comprehensive, integrated platform for managing all critical aspects of a real estate enterprise. This includes customer relationships, dynamic property inventory, complex sales operations, unit bookings, rigorous financial transactions, detailed project information, secure documentation, actionable reporting, and routine administrative activities. The functional scope of this project covers the complete lifecycle of a real estate transaction. It commences from initial multi-channel lead generation and inquiry capture, extends through site visits, negotiation, and contract execution, and culminates with customer possession, full payment realization, and robust post-sales support. This end-to-end coverage ensures that every customer touchpoint and internal operation is accurately tracked, strategically managed, and optimized for maximum business value.</p>
+            
+            <h3>7.2 In Scope</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="30%">Module</th>
+                        <th width="70%">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Dashboard</strong></td><td>Centralized overview of key metrics, KPIs, and daily tasks.</td></tr>
+                    <tr><td><strong>Lead Management</strong></td><td>Capture, automated routing, and tracking of potential clients.</td></tr>
+                    <tr><td><strong>Inquiry Management</strong></td><td>Logging and systematic processing of incoming customer queries.</td></tr>
+                    <tr><td><strong>Customer Management</strong></td><td>Maintaining detailed client profiles and interaction histories.</td></tr>
+                    <tr><td><strong>Site Visit Management</strong></td><td>Scheduling, assigning, and tracking physical property viewings.</td></tr>
+                    <tr><td><strong>Sales Pipeline</strong></td><td>Visual tracking of opportunities through various conversion stages.</td></tr>
+                    <tr><td><strong>Property & Project Management</strong></td><td>Defining and managing projects, towers, phases, and amenities.</td></tr>
+                    <tr><td><strong>Inventory Management</strong></td><td>Real-time tracking of unit availability, layouts, and pricing.</td></tr>
+                    <tr><td><strong>Booking Management</strong></td><td>Processing unit reservations, blocks, and final allocations.</td></tr>
+                    <tr><td><strong>Payment & Installment Management</strong></td><td>Tracking payment schedules, milestones, and generating receipts.</td></tr>
+                    <tr><td><strong>Agreement & Document Management</strong></td><td>Storing and managing legal contracts and KYC documents securely.</td></tr>
+                    <tr><td><strong>Broker / Channel Partner Management</strong></td><td>Managing external agents, leads generated, and commission payouts.</td></tr>
+                    <tr><td><strong>Reports & Analytics</strong></td><td>Generating custom operational reports and data visualizations.</td></tr>
+                    <tr><td><strong>Notification System</strong></td><td>Automated email/SMS alerts for tasks, payments, and system events.</td></tr>
+                    <tr><td><strong>User & Role Management</strong></td><td>Configuring strict access controls and hierarchical user profiles.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>7.3 Out of Scope</h3>
+            <ul>
+                <li>Property resale marketplace</li>
+                <li>Online property auction platform</li>
+                <li>AI-based property valuation</li>
+                <li>Blockchain-based property registration</li>
+                <li>IoT smart building management</li>
+                <li>Third-party accounting implementation beyond standard integrations</li>
+                <li>Mobile application development (current phase)</li>
+            </ul>
+
+            <h3>7.4 Assumptions</h3>
+            <ul>
+                <li>Users have valid login credentials and active network access.</li>
+                <li>Required historical customer and property data will be available for migration.</li>
+                <li>Continuous and stable internet connectivity is available at all operating locations.</li>
+                <li>Users will receive adequate system training prior to the production launch.</li>
+                <li>Required integration APIs will be provided and supported by respective third-party vendors.</li>
+            </ul>
+
+            <h3>7.5 Constraints</h3>
+            <ul>
+                <li>Strict project timeline restrictions for final production delivery.</li>
+                <li>Budget limitations for cloud infrastructure and third-party software licensing.</li>
+                <li>Mandatory regulatory compliance and data privacy requirements (e.g., GDPR, local real estate laws).</li>
+                <li>User adoption curve and the necessity for phased operational training.</li>
+                <li>Third-party API availability, rate limits, and response times.</li>
+                <li>Data migration accuracy and cleansing dependencies from legacy systems.</li>
+            </ul>
+
+            <p>Defining the project scope clearly helps ensure aligned stakeholder expectations, controlled implementation phases, and highly effective project management throughout the software development lifecycle, thereby mitigating the risk of uncontrolled scope creep.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 7</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 8: Business Overview -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>8. Business Overview</h2>
+            
+            <h3>8.1 Overview of the Real Estate Business</h3>
+            <p>A real estate organization operates in a highly dynamic and capital-intensive environment, where the successful execution of projects requires the seamless coordination of multiple operational phases. The complete business lifecycle begins long before a property is sold; it initiates with strategic project planning, land acquisition, and meticulous property inventory management. Once a project is defined, the Marketing department launches targeted campaigns to generate interest, driving potential buyers into the sales funnel through effective lead generation strategies.</p>
+            <p>As leads are captured, the Sales department manages customer inquiries, schedules site visits, and guides prospects through the intricate negotiation process. Upon successful conversion, the operational focus shifts to the booking process, where unit allocations are confirmed, and the Finance department assumes responsibility for structured payment collection and milestone tracking. Concurrently, the Legal and Administration teams facilitate agreement execution, regulatory compliance, and property registration. Finally, the lifecycle culminates in property possession and ongoing post-sales customer support, ensuring long-term client satisfaction and brand loyalty. Throughout this extensive lifecycle, departments such as Sales, Marketing, Finance, Legal, Customer Support, and Administration must work in lockstep. The absence of centralized information creates critical bottlenecks, miscommunication, and data silos, underlining the absolute necessity for a unified digital platform to orchestrate these complex, interdependent operations.</p>
+            
+            <h3>8.2 Key Business Functions</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="35%">Business Function</th>
+                        <th width="65%">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Sales Management</strong></td><td>Tracking opportunities, managing pipelines, and converting leads into successful property sales.</td></tr>
+                    <tr><td><strong>Customer Relationship Management</strong></td><td>Maintaining comprehensive profiles, interaction histories, and personalized communication with clients.</td></tr>
+                    <tr><td><strong>Property Management</strong></td><td>Defining building structures, floor plans, unit specifications, and property amenities.</td></tr>
+                    <tr><td><strong>Inventory Management</strong></td><td>Real-time tracking of unit availability, pricing configurations, and blocked or sold statuses.</td></tr>
+                    <tr><td><strong>Booking Management</strong></td><td>Processing reservations, generating application forms, and allocating specific units to buyers.</td></tr>
+                    <tr><td><strong>Payment Management</strong></td><td>Tracking milestone-based installment schedules, processing receipts, and managing tax calculations.</td></tr>
+                    <tr><td><strong>Project Management</strong></td><td>Monitoring construction progress, development phases, and overarching project timelines.</td></tr>
+                    <tr><td><strong>Document Management</strong></td><td>Securely storing legal agreements, customer identity proofs, and property registration documents.</td></tr>
+                    <tr><td><strong>Reporting & Analytics</strong></td><td>Generating actionable insights, revenue forecasts, and performance metrics for executive review.</td></tr>
+                    <tr><td><strong>Customer Support</strong></td><td>Managing post-sales queries, maintenance requests, and resolving client grievances effectively.</td></tr>
+                </tbody>
+            </table>
+
+            <p>By harmonizing these functions, the ERP and CRM modules work in tandem to streamline business operations. The CRM drives customer acquisition and retention, while the ERP provides the robust backend infrastructure to manage the financial, operational, and administrative heavy lifting, creating a cohesive, end-to-end enterprise solution.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 8</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 9: Existing Business Process (As-Is Process) -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>9. Existing Business Process (As-Is)</h2>
+            
+            <p>Currently, many real estate companies manage their complex day-to-day operations using a disjointed array of manual tools, including standalone spreadsheets, paper-based ledgers, scattered emails, phone call logs, and disconnected legacy software systems. In this "As-Is" environment, marketing leads are often manually exported from ad platforms and distributed to sales teams via email or messaging apps, leading to delayed response times and a high risk of lead leakage. Without a centralized CRM, sales representatives struggle to track follow-ups effectively, resulting in missed opportunities and poor customer engagement.</p>
+            <p>Furthermore, inventory availability is typically managed on shared spreadsheets that are not updated in real-time. This creates a severe risk of double-booking units and causes friction between sales agents. On the financial side, payment tracking involves manual reconciliation between bank statements and paper receipts, making it incredibly difficult to track outstanding dues or generate accurate revenue forecasts. These fragmented processes force departments to operate in isolated silos, causing significant delays in contract preparation, property registration, and customer support, ultimately damaging the organization's reputation and bottom line.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin: 25px 0; font-size: 9.5pt; font-weight: 600; color: var(--primary-blue); background: var(--light-gray); padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);">
+                <span>Marketing Campaign</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Lead Generation</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Customer Inquiry</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Sales Follow-up</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Site Visit</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Property Selection</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Price Negotiation</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Booking</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Payment Collection</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Agreement Preparation</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Registration</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Possession</span> <i class="fa-solid fa-arrow-right" style="color: var(--accent-blue);"></i>
+                <span>Customer Support</span>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width="35%">Current Process Issue</th>
+                        <th width="65%">Business Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Manual Lead Tracking</strong></td><td>High rate of lead leakage and significantly delayed customer response times.</td></tr>
+                    <tr><td><strong>Duplicate Customer Records</strong></td><td>Conflicting data, poor personalization, and unprofessional client communication.</td></tr>
+                    <tr><td><strong>Delayed Follow-ups</strong></td><td>Loss of potential sales to competitors due to lack of timely engagement.</td></tr>
+                    <tr><td><strong>Inventory Conflicts</strong></td><td>Risk of double-booking properties and severe operational embarrassment.</td></tr>
+                    <tr><td><strong>Manual Payment Tracking</strong></td><td>Delayed cash flow, missing payment reminders, and inaccurate financial reporting.</td></tr>
+                    <tr><td><strong>Poor Department Communication</strong></td><td>Bottlenecks in workflow transitions, such as moving from sales to finance.</td></tr>
+                    <tr><td><strong>Document Management Issues</strong></td><td>Risk of losing critical legal agreements and non-compliance with data policies.</td></tr>
+                    <tr><td><strong>Limited Reporting</strong></td><td>Management relies on outdated, manually compiled data for critical decisions.</td></tr>
+                </tbody>
+            </table>
+
+            <p>To overcome these critical bottlenecks, a comprehensive digital transformation is necessary. Implementing an integrated ERP and CRM solution is strictly required to replace these fragmented processes with automated workflows, thereby improving operational efficiency, ensuring data transparency, and delivering an exceptional customer satisfaction experience.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 9</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 10: Proposed Business Process (To-Be Process) -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>10. Proposed Business Process (To-Be Process)</h2>
+            
+            <h3>10.1 Introduction</h3>
+            <p>The proposed Real Estate ERP & CRM Management System fundamentally transforms the existing manual and fragmented business processes into a highly integrated, automated, and centralized workflow ecosystem. By replacing disconnected spreadsheets and legacy tools with a unified platform, the "To-Be" process ensures that every critical business function operates from a single source of truth. At the core of this transformation is a shared database that acts as the central nervous system for the entire organization. When a new lead is captured by the Marketing department, it is instantly visible to the Sales team for immediate follow-up. Upon successful conversion, the Finance and Legal departments are automatically notified to initiate payment schedules and draft necessary agreements.</p>
+            <p>This seamless integration dictates that all departments—including Sales, Marketing, Finance, Customer Support, Legal, and Administration—can collaborate in real-time without the friction of manual data handoffs. The system enforces standardized workflows, ensuring that critical steps such as inventory blocking, KYC verification, and payment realization are executed meticulously before proceeding to the next stage. Automated notifications and task assignments eliminate delays, while centralized records eradicate duplicate data entries. Consequently, management gains unprecedented visibility into daily operations through real-time dashboards. This proposed process not only improves internal operational efficiency and cross-departmental collaboration but also empowers leadership with accurate, actionable intelligence for superior decision-making and sustainable business growth.</p>
+            
+            <h3>10.2 Proposed Business Workflow</h3>
+            <div style="border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; background-color: #f8f9fa; margin: 15px auto; width: 70%; display: flex; flex-direction: column; align-items: center; gap: 6px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Lead Captured</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Automatic Lead Assignment</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Customer Qualification</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Follow-up Scheduling</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Site Visit Planning</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Property Selection</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Quotation Generation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Booking Confirmation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Payment Schedule Creation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Agreement & Documentation</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Registration</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Possession</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 11pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #ffffff; padding: 6px 20px; border-radius: 20px; font-weight: 600; font-size: 9.5pt; text-align: center; width: 250px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Customer Relationship Management</div>
+            </div>
+
+            <h3>10.3 Business Improvements</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="35%">Improvement</th>
+                        <th width="65%">Business Benefit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Automated Lead Assignment</strong></td><td>Ensures immediate follow-up by routing leads to the correct sales agents instantly based on defined rules.</td></tr>
+                    <tr><td><strong>Centralized Customer Database</strong></td><td>Eliminates duplicate records and provides a 360-degree view of all customer interactions and history.</td></tr>
+                    <tr><td><strong>Real-Time Inventory Updates</strong></td><td>Prevents double bookings by immediately reflecting blocked or sold status across all sales channels.</td></tr>
+                    <tr><td><strong>Automated Payment Tracking</strong></td><td>Improves cash flow by sending automatic payment reminders and accurately tracking outstanding dues.</td></tr>
+                    <tr><td><strong>Digital Document Management</strong></td><td>Secures sensitive customer and legal documents, making them easily searchable and retrievable.</td></tr>
+                    <tr><td><strong>Role-Based Access Control</strong></td><td>Enhances data security by ensuring users only access information pertinent to their specific job roles.</td></tr>
+                    <tr><td><strong>Dashboard Reporting</strong></td><td>Empowers management with real-time insights into sales performance, revenue, and operational bottlenecks.</td></tr>
+                    <tr><td><strong>Improved Customer Communication</strong></td><td>Enhances the customer experience through automated, personalized, and timely notifications.</td></tr>
+                </tbody>
+            </table>
+
+            <p>By shifting from fragmented manual tasks to this structured, automated workflow, the organization will drastically improve operational efficiency, enforce process transparency across all hierarchical levels, and ultimately deliver a superior, highly responsive customer satisfaction experience.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 10</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 11: System Overview -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>11. System Overview</h2>
+            
+            <h3>11.1 System Description</h3>
+            <p>The Real Estate ERP & CRM Management System is a comprehensive, web-based enterprise application engineered to unify the multifaceted operations of a real estate organization into a single, cohesive digital platform. At its core, the system intelligently integrates two primary pillars: Customer Relationship Management (CRM) and Enterprise Resource Planning (ERP). The CRM module is meticulously designed to optimize the front-end sales and marketing operations. It expertly manages the entire customer acquisition lifecycle, encompassing omni-channel lead generation, systematic inquiry logging, automated follow-up scheduling, and rigorous sales opportunity tracking. By providing a 360-degree view of the customer, the CRM ensures personalized communication and high conversion rates.</p>
+            <p>Seamlessly integrated with the CRM is the robust ERP module, which serves as the operational backbone for the enterprise. The ERP is responsible for managing the intricate backend processes, including comprehensive project definitions, dynamic property inventory, precise unit bookings, and complex financial workflows. It oversees rigorous payment schedule management, legal agreement tracking, secure documentation repositories, and internal employee administrative operations. By combining these two powerful paradigms, the web-based application guarantees that data flows flawlessly from initial prospect engagement through to final property possession and financial realization. Designed with modern web architecture, the system is accessible from any location, providing a secure, highly scalable, and user-friendly interface that empowers all departments to function synchronously.</p>
+            
+            <h3>11.2 Core System Components</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="35%">Component</th>
+                        <th width="65%">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>CRM Module</strong></td><td>Manages leads, customer profiles, sales pipelines, and marketing campaigns.</td></tr>
+                    <tr><td><strong>ERP Module</strong></td><td>Handles property inventory, bookings, financials, and project operations.</td></tr>
+                    <tr><td><strong>User Management</strong></td><td>Controls user provisioning, authentication, and hierarchical access permissions.</td></tr>
+                    <tr><td><strong>Dashboard</strong></td><td>Provides visual analytics, KPIs, and immediate operational insights for users.</td></tr>
+                    <tr><td><strong>Reporting Engine</strong></td><td>Generates custom, real-time reports on sales, inventory, and revenue metrics.</td></tr>
+                    <tr><td><strong>Notification Service</strong></td><td>Dispatches automated alerts, emails, and SMS for tasks and payment dues.</td></tr>
+                    <tr><td><strong>Document Management</strong></td><td>Acts as a secure, centralized repository for legal agreements and customer KYC.</td></tr>
+                    <tr><td><strong>Security & Authentication</strong></td><td>Enforces robust data encryption, secure login, and strict access control policies.</td></tr>
+                    <tr><td><strong>Database</strong></td><td>Serves as the centralized, relational storage system ensuring data integrity.</td></tr>
+                    <tr><td><strong>Integration Layer</strong></td><td>Facilitates seamless connections with external third-party services and APIs.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>11.3 Key Features</h3>
+            <ul>
+                <li>Centralized Data Management</li>
+                <li>Lead & Inquiry Tracking</li>
+                <li>Property Inventory Management</li>
+                <li>Booking & Payment Management</li>
+                <li>Customer Relationship Management</li>
+                <li>Document Repository</li>
+                <li>Automated Notifications</li>
+                <li>Reports & Dashboards</li>
+                <li>User Role Management</li>
+                <li>Secure Authentication</li>
+            </ul>
+
+            <p>This integrated system provides a secure, robust, and highly scalable foundation explicitly tailored for managing the complete lifecycle of real estate operations. By eliminating operational silos and automating routine tasks, the platform significantly improves enterprise efficiency, fosters interdepartmental collaboration, and elevates overall business performance.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 11</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 12: High-Level System Architecture -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>12. High-Level System Architecture</h2>
+            
+            <h3>12.1 Architecture Overview</h3>
+            <p>The Real Estate ERP & CRM Management System leverages a robust, modern three-tier architecture specifically designed to deliver high scalability, rigorous security, and uncompromising performance. This architectural paradigm logically separates the application into a Presentation Layer, an Application Layer, and a Database Layer. The Presentation Layer provides a responsive, intuitive interface accessible via web browsers and mobile devices, ensuring seamless user interaction. The Application Layer contains the core business logic, orchestrating data processing and facilitating secure communication between the CRM, ERP, and utility services. Finally, the Database Layer ensures data persistence, integrity, and encrypted storage. Communication between these layers occurs through secure, stateless APIs over HTTPS. By decoupling these tiers, the system allows for independent scaling, simplifies ongoing maintenance, and prevents cascading failures, ensuring that the platform can dynamically adapt to the evolving demands of a growing real estate enterprise.</p>
+            
+            <h3>12.2 High-Level Architecture Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 15px; background-color: #f8f9fa; margin: 15px auto; width: 85%; display: flex; flex-direction: column; align-items: center; gap: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                
+                <div style="width: 100%; border: 1px dashed var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #fff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;">Users</div>
+                    <div style="font-size: 9pt;">Admin | Sales Executive | Marketing | Finance | Customer | Management</div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 2px solid var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #e6f0ff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;">Presentation Layer</div>
+                    <div style="font-size: 9pt;">Web Browser / Mobile Responsive UI</div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 2px solid var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #e6f0ff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;">Application Layer</div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; font-size: 8.5pt;">
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">CRM Module</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">ERP Module</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">Authentication Service</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">Notification Service</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">Reporting Engine</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">Document Management</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 2px solid var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #e6f0ff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;">Database Layer</div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; font-size: 8.5pt;">
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;"><i class="fa-solid fa-database" style="color: #666; margin-right: 4px;"></i>Customer DB</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;"><i class="fa-solid fa-database" style="color: #666; margin-right: 4px;"></i>Property DB</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;"><i class="fa-solid fa-database" style="color: #666; margin-right: 4px;"></i>Booking DB</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;"><i class="fa-solid fa-database" style="color: #666; margin-right: 4px;"></i>Payment DB</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;"><i class="fa-solid fa-database" style="color: #666; margin-right: 4px;"></i>Employee DB</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;"><i class="fa-solid fa-database" style="color: #666; margin-right: 4px;"></i>Reports DB</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 1px dashed var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #fff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;">External Services</div>
+                    <div style="font-size: 9pt;">Email | SMS | Payment Gateway</div>
+                </div>
+
+            </div>
+
+            <h3>12.3 Architecture Benefits</h3>
+            <table>
+                <thead>
+                    <tr><th width="30%">Feature</th><th width="70%">Benefit</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Layered Architecture</strong></td><td>Separation of concerns allows independent updates to UI, logic, and data.</td></tr>
+                    <tr><td><strong>Scalability</strong></td><td>Application and Database layers can be scaled independently based on traffic.</td></tr>
+                    <tr><td><strong>Security</strong></td><td>Direct database access is restricted; all interactions occur through secured APIs.</td></tr>
+                    <tr><td><strong>Performance</strong></td><td>Optimized database queries and stateless APIs ensure rapid system response times.</td></tr>
+                    <tr><td><strong>Centralized Database</strong></td><td>Eliminates data silos, ensuring one authoritative source of truth across all modules.</td></tr>
+                    <tr><td><strong>Easy Maintenance</strong></td><td>Modular structure simplifies bug fixing, patch deployments, and future upgrades.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 12</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 13: Component Architecture -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>13. Component Architecture</h2>
+            
+            <h3>13.1 Introduction</h3>
+            <p>To ensure maximum flexibility, maintainability, and operational resilience, the Real Estate ERP & CRM Management System is strategically divided into multiple independent, yet highly cohesive, functional components. This modular architecture dictates that distinct business operations—such as lead generation, financial tracking, and property inventory management—are encapsulated within their respective modules. These discrete components communicate dynamically through secure internal APIs and are anchored by a robust, centralized database infrastructure. By decoupling the system logic into specialized functional blocks, the architecture significantly mitigates the risk of system-wide failures and accelerates the deployment of targeted feature enhancements without disrupting adjacent operations.</p>
+            
+            <h3>13.2 Component Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 15px; background-color: #f8f9fa; margin: 15px auto; width: 90%; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 8px; border-radius: 4px; font-weight: bold; width: 60%; margin: 0 auto 10px auto;">Dashboard</div>
+                <i class="fa-solid fa-arrows-up-down" style="color: var(--accent-blue); font-size: 14pt; margin-bottom: 10px;"></i>
+                
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+                    <!-- CRM Module -->
+                    <div style="flex: 1; border: 1px solid var(--primary-blue); border-radius: 6px; background-color: #fff; padding: 10px;">
+                        <div style="font-weight: bold; color: var(--primary-blue); border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 5px;">CRM Module</div>
+                        <ul style="font-size: 8.5pt; text-align: left; margin: 0; padding-left: 15px;">
+                            <li>Lead Management</li>
+                            <li>Customer Management</li>
+                            <li>Follow-ups</li>
+                            <li>Sales Pipeline</li>
+                        </ul>
+                    </div>
+                    <!-- ERP Module -->
+                    <div style="flex: 1; border: 1px solid var(--primary-blue); border-radius: 6px; background-color: #fff; padding: 10px;">
+                        <div style="font-weight: bold; color: var(--primary-blue); border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 5px;">ERP Module</div>
+                        <ul style="font-size: 8.5pt; text-align: left; margin: 0; padding-left: 15px;">
+                            <li>Property Management</li>
+                            <li>Inventory</li>
+                            <li>Booking</li>
+                            <li>Payment & Finance</li>
+                            <li>Documents</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+                    <!-- Common Services -->
+                    <div style="flex: 1; border: 1px dashed var(--accent-blue); border-radius: 6px; background-color: #fff; padding: 10px;">
+                        <div style="font-weight: bold; color: var(--accent-blue); border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 5px;">Common Services</div>
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; font-size: 8pt;">
+                            <span style="background: #e6f0ff; padding: 2px 6px; border-radius: 4px;">Authentication</span>
+                            <span style="background: #e6f0ff; padding: 2px 6px; border-radius: 4px;">Reports</span>
+                            <span style="background: #e6f0ff; padding: 2px 6px; border-radius: 4px;">Notifications</span>
+                            <span style="background: #e6f0ff; padding: 2px 6px; border-radius: 4px;">Role Management</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt; margin-bottom: 10px;"></i>
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 8px; border-radius: 4px; font-weight: bold; width: 70%; margin: 0 auto;"><i class="fa-solid fa-database" style="margin-right: 5px;"></i> Centralized Database</div>
+
+            </div>
+
+            <h3>13.3 Component Responsibilities</h3>
+            <table>
+                <thead>
+                    <tr><th width="30%">Component</th><th width="70%">Responsibility</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Dashboard</strong></td><td>Provides a unified, real-time graphical interface summarizing KPIs for the user.</td></tr>
+                    <tr><td><strong>CRM</strong></td><td>Handles the end-to-end customer acquisition and pre-sales lifecycle.</td></tr>
+                    <tr><td><strong>ERP</strong></td><td>Executes back-office operations, inventory control, and financial processing.</td></tr>
+                    <tr><td><strong>Reports</strong></td><td>Aggregates data across all modules to generate comprehensive business intelligence.</td></tr>
+                    <tr><td><strong>Authentication</strong></td><td>Validates user identities, manages login sessions, and enforces security protocols.</td></tr>
+                    <tr><td><strong>Notifications</strong></td><td>Manages the asynchronous dispatch of system alerts, SMS, and email communications.</td></tr>
+                    <tr><td><strong>Database</strong></td><td>Provides secure, highly available persistence for all enterprise transactional data.</td></tr>
+                </tbody>
+            </table>
+
+            <p>This strictly modular approach dramatically simplifies ongoing application maintenance, facilitates seamless future feature enhancements, and guarantees that the system architecture remains infinitely scalable as the real estate enterprise expands its operational footprint.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 13</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 14: Deployment Architecture -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>14. Deployment Architecture</h2>
+            
+            <h3>14.1 Overview</h3>
+            <p>The Deployment Architecture of the Real Estate ERP & CRM Management System is strategically engineered to provide a highly secure, scalable, and resilient cloud-based environment. Deployed on a modern enterprise cloud server infrastructure, this web-based application guarantees high availability and robust performance under varying operational loads. End-users—spanning from administrators and sales executives to finance personnel and customers—access the system via standard web browsers. To ensure absolute data confidentiality and integrity in transit, all communications are strictly encrypted over secure HTTPS protocols.</p>
+            <p>When a user initiates a request, it securely traverses the internet and is intercepted by the Web Server, which handles load balancing and initial request routing. The request is then securely forwarded to the Application Server, where the core business logic, including CRM workflows and ERP data processing, is executed. Subsequently, the Application Server interacts with the centralized relational Database Server to persistently store or dynamically retrieve critical business data. Furthermore, the system seamlessly interfaces with essential External Services—such as Email servers, SMS gateways, and Payment processing gateways—to facilitate automated notifications and secure financial transactions. This tiered deployment model guarantees robust security, minimizes latency, and provides a scalable foundation for future enterprise expansion.</p>
+            
+            <h3>14.2 Deployment Architecture Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 15px; background-color: #f8f9fa; margin: 15px auto; width: 85%; display: flex; flex-direction: column; align-items: center; gap: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                
+                <div style="width: 100%; border: 1px dashed var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #fff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;"><i class="fa-solid fa-users" style="margin-right: 5px;"></i> Users</div>
+                    <div style="font-size: 9pt;">Admin | Sales Executive | Finance | Customer</div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 2px solid var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #e6f0ff;">
+                    <div style="font-weight: bold; color: var(--primary-blue);"><i class="fa-solid fa-globe" style="margin-right: 5px;"></i> Internet (HTTPS)</div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 2px solid var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #e6f0ff;">
+                    <div style="font-weight: bold; color: var(--primary-blue);"><i class="fa-solid fa-server" style="margin-right: 5px;"></i> Web Server</div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 2px solid var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #e6f0ff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;"><i class="fa-solid fa-microchip" style="margin-right: 5px;"></i> Application Server (Business Services)</div>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; font-size: 8.5pt;">
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">CRM Services</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">ERP Services</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">Authentication</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">Reporting</span>
+                        <span style="background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #ccc;">Notification</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 2px solid var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #e6f0ff;">
+                    <div style="font-weight: bold; color: var(--primary-blue);"><i class="fa-solid fa-database" style="margin-right: 5px;"></i> Database Server</div>
+                </div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 14pt;"></i>
+                
+                <div style="width: 100%; border: 1px dashed var(--primary-blue); border-radius: 8px; padding: 10px; text-align: center; background-color: #fff;">
+                    <div style="font-weight: bold; color: var(--primary-blue); margin-bottom: 5px;"><i class="fa-solid fa-plug" style="margin-right: 5px;"></i> External Services</div>
+                    <div style="font-size: 9pt;">Email Server | SMS Gateway | Payment Gateway</div>
+                </div>
+
+            </div>
+
+            <h3>14.3 Deployment Benefits</h3>
+            <table>
+                <thead>
+                    <tr><th width="35%">Deployment Feature</th><th width="65%">Benefit</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Centralized Hosting</strong></td><td>Reduces hardware costs and eliminates the need for localized on-premise IT maintenance.</td></tr>
+                    <tr><td><strong>Secure HTTPS Communication</strong></td><td>Encrypts all data in transit, preventing interception and ensuring strict data privacy.</td></tr>
+                    <tr><td><strong>Scalable Infrastructure</strong></td><td>Cloud-based deployment allows for instant resource scaling during peak operational loads.</td></tr>
+                    <tr><td><strong>Easy Maintenance</strong></td><td>Enables seamless, centralized software updates and patch deployments without client downtime.</td></tr>
+                    <tr><td><strong>High Availability</strong></td><td>Cloud redundancy ensures the application remains online 24/7, minimizing business disruption.</td></tr>
+                    <tr><td><strong>Centralized Data Storage</strong></td><td>Guarantees automated, secure database backups and rapid disaster recovery capabilities.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 14</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 15: User Roles & Permissions -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>15. User Roles & Permissions</h2>
+            
+            <h3>15.1 Overview</h3>
+            <p>The Real Estate ERP & CRM Management System implements a strict Role-Based Access Control (RBAC) framework to govern user interactions and safeguard sensitive enterprise data. RBAC is a fundamental security mechanism that restricts system access strictly based on the authenticated user's designated organizational role. Instead of assigning individual permissions to every user, permissions are logically grouped into comprehensive roles (e.g., Sales Manager, Finance Executive). When a user logs into the system, they inherit the exact set of privileges associated with their assigned role.</p>
+            <p>This approach ensures that employees only have access to the specific modules, data sets, and actions necessary to perform their exact job responsibilities. For example, a Sales Executive can modify lead statuses but cannot alter financial payment records, while a System Administrator retains full configuration authority. Implementing RBAC not only significantly enhances operational efficiency by providing users with a focused, clutter-free interface, but it also fortifies data security by preventing unauthorized access and accidental data modification.</p>
+
+            <h3>15.2 User Roles</h3>
+            <table>
+                <thead>
+                    <tr><th width="25%">Role</th><th width="50%">Responsibilities</th><th width="25%">Access Level</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>System Administrator</strong></td><td>Full system configuration, user provisioning, and master data management.</td><td>Full Access</td></tr>
+                    <tr><td><strong>Sales Manager</strong></td><td>Oversees sales pipelines, team performance, and high-level lead assignment.</td><td>High (Sales & CRM)</td></tr>
+                    <tr><td><strong>Sales Executive</strong></td><td>Manages individual assigned leads, scheduling, and customer communication.</td><td>Medium (CRM)</td></tr>
+                    <tr><td><strong>Marketing Executive</strong></td><td>Executes campaigns, manages inquiries, and tracks lead generation sources.</td><td>Medium (Marketing)</td></tr>
+                    <tr><td><strong>Finance Manager</strong></td><td>Approves payment schedules, oversees revenue, and manages taxation.</td><td>High (Finance)</td></tr>
+                    <tr><td><strong>Finance Executive</strong></td><td>Records installment payments, generates receipts, and tracks dues.</td><td>Medium (Finance)</td></tr>
+                    <tr><td><strong>Project Manager</strong></td><td>Updates project milestones, inventory status, and construction timelines.</td><td>Medium (ERP)</td></tr>
+                    <tr><td><strong>Legal Officer</strong></td><td>Drafts, reviews, and securely uploads official property agreements.</td><td>Medium (Legal/Docs)</td></tr>
+                    <tr><td><strong>Customer Support</strong></td><td>Resolves post-sales queries, handles grievances, and updates client records.</td><td>Medium (Support)</td></tr>
+                    <tr><td><strong>Customer</strong></td><td>Views personal bookings, payment schedules, and downloads receipts.</td><td>Restricted (Self)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>15.3 Permission Matrix</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Admin</th>
+                        <th>Sales</th>
+                        <th>Marketing</th>
+                        <th>Finance</th>
+                        <th>Support</th>
+                        <th>Customer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Dashboard</strong></td><td>Full</td><td>View</td><td>View</td><td>View</td><td>View</td><td>Self</td></tr>
+                    <tr><td><strong>Lead Management</strong></td><td>Full</td><td>Write</td><td>Write</td><td>None</td><td>None</td><td>None</td></tr>
+                    <tr><td><strong>Customer Management</strong></td><td>Full</td><td>Write</td><td>View</td><td>View</td><td>Write</td><td>Self</td></tr>
+                    <tr><td><strong>Property Management</strong></td><td>Full</td><td>View</td><td>View</td><td>View</td><td>View</td><td>View</td></tr>
+                    <tr><td><strong>Booking</strong></td><td>Full</td><td>Write</td><td>None</td><td>View</td><td>View</td><td>Self</td></tr>
+                    <tr><td><strong>Payments</strong></td><td>Full</td><td>View</td><td>None</td><td>Write</td><td>View</td><td>Self</td></tr>
+                    <tr><td><strong>Reports</strong></td><td>Full</td><td>View</td><td>View</td><td>View</td><td>None</td><td>None</td></tr>
+                    <tr><td><strong>Documents</strong></td><td>Full</td><td>View</td><td>None</td><td>View</td><td>View</td><td>Self</td></tr>
+                    <tr><td><strong>User Management</strong></td><td>Full</td><td>None</td><td>None</td><td>None</td><td>None</td><td>None</td></tr>
+                </tbody>
+            </table>
+
+            <p>By enforcing this comprehensive role-based permission structure, the organization can confidently protect highly sensitive financial and personal information, effectively prevent unauthorized internal access, establish clear accountability, and maintain robust system governance across all departments.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 15</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 16: Module Architecture -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>16. Module Architecture</h2>
+            
+            <h3>16.1 Overview</h3>
+            <p>The Real Estate ERP & CRM Management System is architecturally partitioned into two primary, highly specialized functional domains: Customer Relationship Management (CRM) and Enterprise Resource Planning (ERP). This strategic bifurcation ensures that customer-facing sales operations and internal back-office administrative processes are managed with precision, while still operating harmoniously within a unified ecosystem.</p>
+            <p>The CRM domain focuses exclusively on the pre-sales lifecycle. It encompasses independent yet interconnected modules dedicated to lead generation, inquiry tracking, customer follow-ups, site visit scheduling, and targeted marketing campaigns. Conversely, the ERP domain serves as the operational backbone for post-sales and administrative activities, managing complex functions such as dynamic property inventory, precise booking processing, financial accounting, legally binding agreement generation, and human resource management.</p>
+            <p>Despite this logical separation, both domains are deeply integrated through a centralized relational database and a suite of shared common services (such as Authentication and Notifications). This ensures that when a CRM lead successfully converts into a customer, the transition to the ERP booking and payment modules is completely seamless, eliminating data redundancy and manual entry errors.</p>
+            
+            <h3>16.2 Module Architecture Diagram</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 15px; background-color: #f8f9fa; margin: 15px auto; width: 90%; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 8px 20px; border-radius: 6px; font-weight: bold; width: 60%; text-align: center; margin-bottom: 15px;">
+                    Real Estate ERP & CRM System
+                </div>
+                
+                <div style="display: flex; width: 100%; justify-content: space-around;">
+                    <!-- CRM Side -->
+                    <div style="width: 45%; border: 1px solid var(--primary-blue); border-radius: 8px; background: #fff; padding: 10px;">
+                        <div style="text-align: center; font-weight: bold; color: var(--primary-blue); border-bottom: 2px solid var(--border-color); padding-bottom: 5px; margin-bottom: 10px;">
+                            <i class="fa-solid fa-users-line"></i> CRM
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 8.5pt;">
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Dashboard</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Lead Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Inquiry Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Customer Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Site Visit Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Sales Pipeline</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Quotation</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Follow-up</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Marketing Campaign</li>
+                            <li style="padding: 3px 0;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Reports</li>
+                        </ul>
+                    </div>
+
+                    <!-- ERP Side -->
+                    <div style="width: 45%; border: 1px solid var(--primary-blue); border-radius: 8px; background: #fff; padding: 10px;">
+                        <div style="text-align: center; font-weight: bold; color: var(--primary-blue); border-bottom: 2px solid var(--border-color); padding-bottom: 5px; margin-bottom: 10px;">
+                            <i class="fa-solid fa-building"></i> ERP
+                        </div>
+                        <ul style="list-style: none; padding: 0; margin: 0; font-size: 8.5pt;">
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Property Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Project Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Inventory</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Booking</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Payment Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Agreement Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Document Management</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Finance</li>
+                            <li style="padding: 3px 0; border-bottom: 1px dashed #eee;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Employee Management</li>
+                            <li style="padding: 3px 0;"><i class="fa-solid fa-angle-right" style="color: var(--accent-blue); margin-right:5px;"></i> Reports</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3>16.3 Module Summary</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="30%">Module</th><th width="70%">Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>CRM: Lead Mgt.</strong></td><td>Captures and tracks prospective buyers from various integrated marketing channels.</td></tr>
+                    <tr><td><strong>CRM: Sales Pipeline</strong></td><td>Provides a visual funnel representing the progression of leads toward successful closure.</td></tr>
+                    <tr><td><strong>CRM: Marketing</strong></td><td>Facilitates the execution and ROI tracking of SMS, email, and social media campaigns.</td></tr>
+                    <tr><td><strong>ERP: Inventory</strong></td><td>Maintains real-time, precise status of all property units (Available, Blocked, Sold).</td></tr>
+                    <tr><td><strong>ERP: Booking</strong></td><td>Processes unit reservations, KYC verification, and the generation of official allotment letters.</td></tr>
+                    <tr><td><strong>ERP: Finance</strong></td><td>Manages comprehensive ledger accounting, payment schedules, invoicing, and tax calculations.</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 10px;">By implementing this strict modular architecture, the system significantly improves scalability and maintainability. It enables the IT team to deploy localized updates, introduce new feature modules, and scale specific domains independently without causing disruptive downtime to the broader enterprise operations.</p>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 16</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 17: Dashboard Module -->
+    <div class="page">
+        <div class="header">
+            <span>Real Estate ERP & CRM System</span>
+            <span>Functional Design Document</span>
+        </div>
+        <div class="content">
+            <h2>17. Dashboard Module</h2>
+            
+            <h3>17.1 Module Purpose</h3>
+            <p>The Dashboard module serves as the primary, centralized landing page for all authenticated users entering the Real Estate ERP & CRM Management System. It is meticulously engineered to provide immediate, real-time visibility into the organization's most critical business operations. By aggregating complex data streams from both the CRM and ERP domains, the Dashboard translates raw transactional data into intuitive, highly actionable visualizations.</p>
+            <p>This module provides users with instantaneous access to vital Key Performance Indicators (KPIs), pending workflow activities, daily sales performance metrics, and urgent operational alerts. Crucially, the Dashboard is context-aware and strictly adheres to the system's Role-Based Access Control (RBAC) protocols. A Sales Executive will see a personalized view focusing on their daily follow-ups, individual lead conversions, and scheduled site visits. Conversely, a Finance Manager will be presented with high-level revenue charts, pending payment collections, and overall cash flow summaries. This tailored approach ensures that every user is immediately confronted with the data most relevant to their specific responsibilities, thereby driving daily productivity and informed decision-making.</p>
+            
+            <h3>17.2 Dashboard Features</h3>
+            <table>
+                <thead>
+                    <tr><th width="35%">Feature</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Total Leads & Inquiries</strong></td><td>Visual counter displaying new, active, and converted prospect volumes.</td></tr>
+                    <tr><td><strong>Site Visits</strong></td><td>Calendar widget detailing upcoming, completed, and rescheduled client property visits.</td></tr>
+                    <tr><td><strong>Property Availability</strong></td><td>Real-time pie chart showing the precise ratio of sold vs. available project units.</td></tr>
+                    <tr><td><strong>Booking Status</strong></td><td>Summary of recent unit reservations, pending approvals, and finalized sales.</td></tr>
+                    <tr><td><strong>Revenue Overview</strong></td><td>Financial graphs illustrating collected payments versus outstanding scheduled dues.</td></tr>
+                    <tr><td><strong>Pending Tasks & Alerts</strong></td><td>Actionable list of immediate user tasks, overdue follow-ups, and system notifications.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>17.3 Dashboard Workflow</h3>
+            <div style="border: 2px solid var(--border-color); border-radius: 8px; padding: 10px; background-color: #f8f9fa; margin: 15px auto; width: 60%; display: flex; flex-direction: column; align-items: center; gap: 5px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">User Login</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Authentication & RBAC Check</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Load Dashboard Interface</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Fetch Role-Specific KPIs</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Generate Charts & Metrics</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">Display Configurable Widgets</div>
+                <i class="fa-solid fa-arrow-down" style="color: var(--accent-blue); font-size: 10pt;"></i>
+                
+                <div style="background-color: var(--primary-blue); color: #fff; padding: 4px 15px; border-radius: 15px; font-weight: 600; font-size: 8.5pt; width: 180px; text-align: center;">User Navigation to Modules</div>
+            </div>
+
+            <h3>17.4 Business Rules</h3>
+            <table style="font-size: 8.5pt;">
+                <thead>
+                    <tr><th width="35%">Business Rule</th><th width="65%">Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Role-Based Display</strong></td><td>Data and widgets are exclusively rendered according to the user's assigned RBAC profile.</td></tr>
+                    <tr><td><strong>Real-Time Refresh</strong></td><td>Dashboard metrics automatically poll and refresh to ensure data is continuously current.</td></tr>
+                    <tr><td><strong>Restricted KPI Access</strong></td><td>Only high-level management and authorized finance roles can access overall revenue KPIs.</td></tr>
+                    <tr><td><strong>Widget Configuration</strong></td><td>Users possess limited ability to reposition widgets to suit their daily workflow preferences.</td></tr>
+                    <tr><td><strong>Live Data Sourcing</strong></td><td>All visualizations are dynamically generated directly from real-time database transactions.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <span>Confidential</span>
+            <span>Page 17</span>
+        </div>
+    </div>
+    
+    <!-- PAGE 18: CRM: Email Integration & Campaigns -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>18. CRM: Email Integration & Campaigns</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Email Integration & Campaigns will be provided here.]</p><div class="placeholder-box">CRM: Email Integration & Campaigns - Content Placeholder</div></div>
+        <div class="footer">Page 18</div>
+    </div>
+    
+    <!-- PAGE 19: CRM: Opportunity Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>19. CRM: Opportunity Management</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Opportunity Management will be provided here.]</p><div class="placeholder-box">CRM: Opportunity Management - Content Placeholder</div></div>
+        <div class="footer">Page 19</div>
+    </div>
+    
+    <!-- PAGE 20: CRM: Quotations & Proposals -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>20. CRM: Quotations & Proposals</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Quotations & Proposals will be provided here.]</p><div class="placeholder-box">CRM: Quotations & Proposals - Content Placeholder</div></div>
+        <div class="footer">Page 20</div>
+    </div>
+    
+    <!-- PAGE 21: CRM: Marketing Automation -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>21. CRM: Marketing Automation</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Marketing Automation will be provided here.]</p><div class="placeholder-box">CRM: Marketing Automation - Content Placeholder</div></div>
+        <div class="footer">Page 21</div>
+    </div>
+    
+    <!-- PAGE 22: CRM: Task Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>22. CRM: Task Management</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Task Management will be provided here.]</p><div class="placeholder-box">CRM: Task Management - Content Placeholder</div></div>
+        <div class="footer">Page 22</div>
+    </div>
+    
+    <!-- PAGE 23: CRM: Ticket Management & Support -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>23. CRM: Ticket Management & Support</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Ticket Management & Support will be provided here.]</p><div class="placeholder-box">CRM: Ticket Management & Support - Content Placeholder</div></div>
+        <div class="footer">Page 23</div>
+    </div>
+    
+    <!-- PAGE 24: CRM: Analytics & Performance -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>24. CRM: Analytics & Performance</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Analytics & Performance will be provided here.]</p><div class="placeholder-box">CRM: Analytics & Performance - Content Placeholder</div></div>
+        <div class="footer">Page 24</div>
+    </div>
+    
+    <!-- PAGE 25: CRM: Mobile App Interfaces -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>25. CRM: Mobile App Interfaces</h2><p class="placeholder-text">[Detailed content and specifications for CRM: Mobile App Interfaces will be provided here.]</p><div class="placeholder-box">CRM: Mobile App Interfaces - Content Placeholder</div></div>
+        <div class="footer">Page 25</div>
+    </div>
+    
+    <!-- PAGE 26: ERP: Dashboard & Overview -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>26. ERP: Dashboard & Overview</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Dashboard & Overview will be provided here.]</p><div class="placeholder-box">ERP: Dashboard & Overview - Content Placeholder</div></div>
+        <div class="footer">Page 26</div>
+    </div>
+    
+    <!-- PAGE 27: ERP: Financial Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>27. ERP: Financial Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Financial Management will be provided here.]</p><div class="placeholder-box">ERP: Financial Management - Content Placeholder</div></div>
+        <div class="footer">Page 27</div>
+    </div>
+    
+    <!-- PAGE 28: ERP: Accounts Payable & Receivable -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>28. ERP: Accounts Payable & Receivable</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Accounts Payable & Receivable will be provided here.]</p><div class="placeholder-box">ERP: Accounts Payable & Receivable - Content Placeholder</div></div>
+        <div class="footer">Page 28</div>
+    </div>
+    
+    <!-- PAGE 29: ERP: General Ledger & Taxation -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>29. ERP: General Ledger & Taxation</h2><p class="placeholder-text">[Detailed content and specifications for ERP: General Ledger & Taxation will be provided here.]</p><div class="placeholder-box">ERP: General Ledger & Taxation - Content Placeholder</div></div>
+        <div class="footer">Page 29</div>
+    </div>
+    
+    <!-- PAGE 30: ERP: Inventory Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>30. ERP: Inventory Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Inventory Management will be provided here.]</p><div class="placeholder-box">ERP: Inventory Management - Content Placeholder</div></div>
+        <div class="footer">Page 30</div>
+    </div>
+    
+    <!-- PAGE 31: ERP: Asset Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>31. ERP: Asset Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Asset Management will be provided here.]</p><div class="placeholder-box">ERP: Asset Management - Content Placeholder</div></div>
+        <div class="footer">Page 31</div>
+    </div>
+    
+    <!-- PAGE 32: ERP: Procurement & Sourcing -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>32. ERP: Procurement & Sourcing</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Procurement & Sourcing will be provided here.]</p><div class="placeholder-box">ERP: Procurement & Sourcing - Content Placeholder</div></div>
+        <div class="footer">Page 32</div>
+    </div>
+    
+    <!-- PAGE 33: ERP: Vendor Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>33. ERP: Vendor Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Vendor Management will be provided here.]</p><div class="placeholder-box">ERP: Vendor Management - Content Placeholder</div></div>
+        <div class="footer">Page 33</div>
+    </div>
+    
+    <!-- PAGE 34: ERP: Project Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>34. ERP: Project Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Project Management will be provided here.]</p><div class="placeholder-box">ERP: Project Management - Content Placeholder</div></div>
+        <div class="footer">Page 34</div>
+    </div>
+    
+    <!-- PAGE 35: ERP: Resource Allocation -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>35. ERP: Resource Allocation</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Resource Allocation will be provided here.]</p><div class="placeholder-box">ERP: Resource Allocation - Content Placeholder</div></div>
+        <div class="footer">Page 35</div>
+    </div>
+    
+    <!-- PAGE 36: ERP: Human Resources (HR) -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>36. ERP: Human Resources (HR)</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Human Resources (HR) will be provided here.]</p><div class="placeholder-box">ERP: Human Resources (HR) - Content Placeholder</div></div>
+        <div class="footer">Page 36</div>
+    </div>
+    
+    <!-- PAGE 37: ERP: Payroll Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>37. ERP: Payroll Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Payroll Management will be provided here.]</p><div class="placeholder-box">ERP: Payroll Management - Content Placeholder</div></div>
+        <div class="footer">Page 37</div>
+    </div>
+    
+    <!-- PAGE 38: ERP: Employee Self-Service -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>38. ERP: Employee Self-Service</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Employee Self-Service will be provided here.]</p><div class="placeholder-box">ERP: Employee Self-Service - Content Placeholder</div></div>
+        <div class="footer">Page 38</div>
+    </div>
+    
+    <!-- PAGE 39: ERP: Time & Attendance -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>39. ERP: Time & Attendance</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Time & Attendance will be provided here.]</p><div class="placeholder-box">ERP: Time & Attendance - Content Placeholder</div></div>
+        <div class="footer">Page 39</div>
+    </div>
+    
+    <!-- PAGE 40: ERP: Operations Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>40. ERP: Operations Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Operations Management will be provided here.]</p><div class="placeholder-box">ERP: Operations Management - Content Placeholder</div></div>
+        <div class="footer">Page 40</div>
+    </div>
+    
+    <!-- PAGE 41: ERP: Supply Chain Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>41. ERP: Supply Chain Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Supply Chain Management will be provided here.]</p><div class="placeholder-box">ERP: Supply Chain Management - Content Placeholder</div></div>
+        <div class="footer">Page 41</div>
+    </div>
+    
+    <!-- PAGE 42: ERP: Contract Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>42. ERP: Contract Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Contract Management will be provided here.]</p><div class="placeholder-box">ERP: Contract Management - Content Placeholder</div></div>
+        <div class="footer">Page 42</div>
+    </div>
+    
+    <!-- PAGE 43: ERP: Document Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>43. ERP: Document Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Document Management will be provided here.]</p><div class="placeholder-box">ERP: Document Management - Content Placeholder</div></div>
+        <div class="footer">Page 43</div>
+    </div>
+    
+    <!-- PAGE 44: ERP: Quality Control -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>44. ERP: Quality Control</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Quality Control will be provided here.]</p><div class="placeholder-box">ERP: Quality Control - Content Placeholder</div></div>
+        <div class="footer">Page 44</div>
+    </div>
+    
+    <!-- PAGE 45: ERP: Cost Management -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>45. ERP: Cost Management</h2><p class="placeholder-text">[Detailed content and specifications for ERP: Cost Management will be provided here.]</p><div class="placeholder-box">ERP: Cost Management - Content Placeholder</div></div>
+        <div class="footer">Page 45</div>
+    </div>
+    
+    <!-- PAGE 46: Workflows: Lead to Customer -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>46. Workflows: Lead to Customer</h2><p class="placeholder-text">[Detailed content and specifications for Workflows: Lead to Customer will be provided here.]</p><div class="placeholder-box">Workflows: Lead to Customer - Content Placeholder</div></div>
+        <div class="footer">Page 46</div>
+    </div>
+    
+    <!-- PAGE 47: Workflows: Opportunity to Order -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>47. Workflows: Opportunity to Order</h2><p class="placeholder-text">[Detailed content and specifications for Workflows: Opportunity to Order will be provided here.]</p><div class="placeholder-box">Workflows: Opportunity to Order - Content Placeholder</div></div>
+        <div class="footer">Page 47</div>
+    </div>
+    
+    <!-- PAGE 48: Workflows: Order to Cash -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>48. Workflows: Order to Cash</h2><p class="placeholder-text">[Detailed content and specifications for Workflows: Order to Cash will be provided here.]</p><div class="placeholder-box">Workflows: Order to Cash - Content Placeholder</div></div>
+        <div class="footer">Page 48</div>
+    </div>
+    
+    <!-- PAGE 49: Workflows: Procure to Pay -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>49. Workflows: Procure to Pay</h2><p class="placeholder-text">[Detailed content and specifications for Workflows: Procure to Pay will be provided here.]</p><div class="placeholder-box">Workflows: Procure to Pay - Content Placeholder</div></div>
+        <div class="footer">Page 49</div>
+    </div>
+    
+    <!-- PAGE 50: Workflows: Hire to Retire -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>50. Workflows: Hire to Retire</h2><p class="placeholder-text">[Detailed content and specifications for Workflows: Hire to Retire will be provided here.]</p><div class="placeholder-box">Workflows: Hire to Retire - Content Placeholder</div></div>
+        <div class="footer">Page 50</div>
+    </div>
+    
+    <!-- PAGE 51: Use Case Diagram: CRM -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>51. Use Case Diagram: CRM</h2><p class="placeholder-text">[Detailed content and specifications for Use Case Diagram: CRM will be provided here.]</p><div class="placeholder-box">Use Case Diagram: CRM - Content Placeholder</div></div>
+        <div class="footer">Page 51</div>
+    </div>
+    
+    <!-- PAGE 52: Use Case Diagram: ERP -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>52. Use Case Diagram: ERP</h2><p class="placeholder-text">[Detailed content and specifications for Use Case Diagram: ERP will be provided here.]</p><div class="placeholder-box">Use Case Diagram: ERP - Content Placeholder</div></div>
+        <div class="footer">Page 52</div>
+    </div>
+    
+    <!-- PAGE 53: Use Case Diagram: Admin -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>53. Use Case Diagram: Admin</h2><p class="placeholder-text">[Detailed content and specifications for Use Case Diagram: Admin will be provided here.]</p><div class="placeholder-box">Use Case Diagram: Admin - Content Placeholder</div></div>
+        <div class="footer">Page 53</div>
+    </div>
+    
+    <!-- PAGE 54: Activity Diagram: Sales Process -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>54. Activity Diagram: Sales Process</h2><p class="placeholder-text">[Detailed content and specifications for Activity Diagram: Sales Process will be provided here.]</p><div class="placeholder-box">Activity Diagram: Sales Process - Content Placeholder</div></div>
+        <div class="footer">Page 54</div>
+    </div>
+    
+    <!-- PAGE 55: Activity Diagram: Inventory Process -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>55. Activity Diagram: Inventory Process</h2><p class="placeholder-text">[Detailed content and specifications for Activity Diagram: Inventory Process will be provided here.]</p><div class="placeholder-box">Activity Diagram: Inventory Process - Content Placeholder</div></div>
+        <div class="footer">Page 55</div>
+    </div>
+    
+    <!-- PAGE 56: Activity Diagram: Financial Process -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>56. Activity Diagram: Financial Process</h2><p class="placeholder-text">[Detailed content and specifications for Activity Diagram: Financial Process will be provided here.]</p><div class="placeholder-box">Activity Diagram: Financial Process - Content Placeholder</div></div>
+        <div class="footer">Page 56</div>
+    </div>
+    
+    <!-- PAGE 57: Data Flow Diagram (DFD) Level 0 -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>57. Data Flow Diagram (DFD) Level 0</h2><p class="placeholder-text">[Detailed content and specifications for Data Flow Diagram (DFD) Level 0 will be provided here.]</p><div class="placeholder-box">Data Flow Diagram (DFD) Level 0 - Content Placeholder</div></div>
+        <div class="footer">Page 57</div>
+    </div>
+    
+    <!-- PAGE 58: Data Flow Diagram (DFD) Level 1 -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>58. Data Flow Diagram (DFD) Level 1</h2><p class="placeholder-text">[Detailed content and specifications for Data Flow Diagram (DFD) Level 1 will be provided here.]</p><div class="placeholder-box">Data Flow Diagram (DFD) Level 1 - Content Placeholder</div></div>
+        <div class="footer">Page 58</div>
+    </div>
+    
+    <!-- PAGE 59: Entity Relationship (ER) Diagram -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>59. Entity Relationship (ER) Diagram</h2><p class="placeholder-text">[Detailed content and specifications for Entity Relationship (ER) Diagram will be provided here.]</p><div class="placeholder-box">Entity Relationship (ER) Diagram - Content Placeholder</div></div>
+        <div class="footer">Page 59</div>
+    </div>
+    
+    <!-- PAGE 60: Reports & Analytics -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>60. Reports & Analytics</h2><p class="placeholder-text">[Detailed content and specifications for Reports & Analytics will be provided here.]</p><div class="placeholder-box">Reports & Analytics - Content Placeholder</div></div>
+        <div class="footer">Page 60</div>
+    </div>
+    
+    <!-- PAGE 61: Security & Compliance -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>61. Security & Compliance</h2><p class="placeholder-text">[Detailed content and specifications for Security & Compliance will be provided here.]</p><div class="placeholder-box">Security & Compliance - Content Placeholder</div></div>
+        <div class="footer">Page 61</div>
+    </div>
+    
+    <!-- PAGE 62: System Integrations -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>62. System Integrations</h2><p class="placeholder-text">[Detailed content and specifications for System Integrations will be provided here.]</p><div class="placeholder-box">System Integrations - Content Placeholder</div></div>
+        <div class="footer">Page 62</div>
+    </div>
+    
+    <!-- PAGE 63: Non-Functional Requirements -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>63. Non-Functional Requirements</h2><p class="placeholder-text">[Detailed content and specifications for Non-Functional Requirements will be provided here.]</p><div class="placeholder-box">Non-Functional Requirements - Content Placeholder</div></div>
+        <div class="footer">Page 63</div>
+    </div>
+    
+    <!-- PAGE 64: Future Enhancements & Conclusion -->
+    <div class="page">
+        <div class="header"><span>Real Estate ERP & CRM System</span><span>Functional Design Document</span></div>
+        <div class="content"><h2>64. Future Enhancements & Conclusion</h2><p class="placeholder-text">[Detailed content and specifications for Future Enhancements & Conclusion will be provided here.]</p><div class="placeholder-box">Future Enhancements & Conclusion - Content Placeholder</div></div>
+        <div class="footer">Page 64</div>
+    </div>
+    
+</body>
+</html>
